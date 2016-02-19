@@ -1,0 +1,5 @@
+/craft/app
+/craft/storage/runtime
+/craft/storage/backups
+/logs
+/public/uploads

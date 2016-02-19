@@ -1,0 +1,11 @@
+.DS_Store
+craft/app
+craft/storage/runtime
+craft/storage/backups
+node_modules
+bower_components
+.sass-cache
+logs
+.swp
+tmp
+backup/uploads

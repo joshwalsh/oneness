@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rsync -avz --no-o --no-g --no-p --no-t --delete tgp@tgp.d-i.co:/srv/www/tgp.d-i.co/public/uploads/ backup/uploads

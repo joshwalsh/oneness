@@ -1,0 +1,19 @@
+GIT
+  remote: git://github.com/joefiorini/sass-css-importer.git
+  revision: 465a260ce92055572b2a7d2cd5e356d74ec9260a
+  branch: load-paths
+  specs:
+    sass-css-importer (1.0.0.beta.0)
+      sass (>= 3.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    sass (3.3.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  sass
+  sass-css-importer!

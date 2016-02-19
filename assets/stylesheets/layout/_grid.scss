@@ -1,0 +1,57 @@
+// GRID
+// --------------------------------------------
+
+// Construct the grid
+
+.row {
+  @include clearfix;
+}
+
+%col-base {
+  @include respond-to(em(700px)) {
+    float: left;
+    margin-left: flex-gutter();
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.col-centered {
+      float: none;
+      margin: 0 auto;
+
+      &:first-child {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@for $i from 1 through $fg-max-columns {
+  .col-#{$i} {
+    @include respond-to(em(700px)) {
+      @extend %col-base;
+      width: flex-grid($i);
+    }
+  }
+}
+
+@function push($amount, $firstChild) {
+  $ng: 2;
+  @if $firstChild { $ng: 1 }
+  @return flex-grid($amount) + ($ng * flex-gutter());
+}
+
+@for $i from 1 through $fg-max-columns {
+  .push-#{$i} {
+    @include respond-to(em(700px)) {
+      margin-left: push($i, false);
+    }
+
+    &:first-child {
+      @include respond-to(em(700px)) {
+        margin-left: push($i, true);
+      }
+    }
+  }
+}

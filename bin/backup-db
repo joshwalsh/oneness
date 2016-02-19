@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+read mysql_password
+VERSION=$(ssh tgp@tgp.d-i.co "cd /srv/www/tgp.d-i.co/craft/app && php -r 'include(\"Info.php\"); fwrite(STDOUT, CRAFT_VERSION . \".\" . CRAFT_BUILD . \"\n\");'")
+# The -u ensures times will be given in UTC (instead of EDT/EST)
+b_date=$(date -u "+%Y%m%d")
+b_time=$(date -u "+%H%M%S")
+backupfile="tgp_${b_date}_${b_time}_v${VERSION}.sql"
+
+cd backup/db &&
+  ssh tgp@tgp.d-i.co "mysqldump --verbose --user=craft --password=$mysql_password craft" > $backupfile &&
+  rm -f latest.sql &&
+  ln -s $backupfile latest.sql

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+read mysql_password
+ssh tgp@tgp.d-i.co "mysql -v --user=craft --password=$mysql_password craft" < backup/db/latest.sql

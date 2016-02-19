@@ -1,0 +1,91 @@
+// FORM STYLES
+// -----------
+
+// Horizontal form
+
+.form-horizontal {
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  textarea,
+  select {
+    margin-right: $condensed-whitespace;
+  }
+}
+
+// Vertical form
+
+.form-vertical {
+  label {
+    display: block;
+    margin-bottom: em(5px);
+  }
+
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  textarea,
+  select {
+    display: block;
+    margin-bottom: $default-whitespace;
+  }
+}
+
+// Field pair form
+
+.form-pair {
+  &__group {
+    margin-bottom: $default-whitespace;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  label {
+    margin-bottom: em(5px);
+    flex: 0 0 em(120px);
+    margin-right: em(10px);;
+  }
+
+  input {
+    flex: 1 1 em(192px);
+  }
+}
+
+.form-field {
+  margin-bottom: $default-whitespace;
+}
+
+// Checkbox and radio buttons
+
+.input-checkbox,
+.input-radio {
+  padding-left: $default-whitespace;
+
+  input[type="checkbox"],
+  input[type="radio"]  {
+    float: left;
+    margin: 5px 0 0 (-$default-whitespace);
+  }
+}

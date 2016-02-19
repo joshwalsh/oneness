@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+STAGING_DB_PASSWORD="43cs9eene195c9ec61su"
+PROD_DB_PASSWORD="43cs9eene195c9ec61su"
+PROD_DOMAIN="tgp@tgp.d-i.co"
+STAGING_DOMAIN="tgp@tgp-clone.staging.d-i.co"
+PROD_UPLOADS="/srv/www/tgp.d-i.co/public/uploads"
+STAGING_CRAFT="/srv/www/tgp.d-i.co/craft"
+STAGING_PUBLIC="/srv/www/tgp.d-i.co/public"
+VERSION=$(ssh $PROD_DOMAIN "cd /srv/www/tgp.d-i.co/craft/app && php -r 'include(\"Info.php\"); fwrite(STDOUT, CRAFT_VERSION . \".\" . CRAFT_BUILD . \"\n\");'")
+DATE=$(date -u "+%Y%m%d")
+TIME=$(date -u "+%H%M%S")
+FILESTAMP="tgp_production_${DATE}_${TIME}_v${VERSION}"
+ARCHIVE_NAME="${FILESTAMP}.tar.gz"
+
+echo "Dump production data and restore it to staging database"
+ssh $PROD_DOMAIN "mysqldump --verbose --user=craft --password=${PROD_DB_PASSWORD} craft" |
+  ssh $STAGING_DOMAIN "mysql -v --user=craft --password=${STAGING_DB_PASSWORD} craft" &&
+
+    # Comment out this block to skip asset transfer, but please use with caution!
+    # ---------------------------------------------------------------------------
+    echo "Copying assets from production to staging" &&
+    ssh $PROD_DOMAIN "cd ${PROD_UPLOADS}/..; tar cvzf ~/${ARCHIVE_NAME} uploads" &&
+    scp "${PROD_DOMAIN}:~/${ARCHIVE_NAME}" backup/uploads/ &&
+    ssh $PROD_DOMAIN "rm ~/${ARCHIVE_NAME}" &&
+    scp "backup/uploads/${ARCHIVE_NAME}" "${STAGING_DOMAIN}:~/" &&
+    ssh $STAGING_DOMAIN "rm -rf ${STAGING_PUBLIC}/uploads" &&
+    ssh $STAGING_DOMAIN "cd ${STAGING_PUBLIC}; tar xvfz ~/${ARCHIVE_NAME}" &&
+    ssh $STAGING_DOMAIN "rm ~/${ARCHIVE_NAME}" &&
+    ssh -t $STAGING_DOMAIN "sudo chown -R tgp:www-data ${STAGING_PUBLIC}/uploads && sudo chmod -R g+w ${STAGING_PUBLIC}/uploads" &&
+    # ---------------------------------------------------------------------------
+
+    ssh $STAGING_DOMAIN "rm -rf ~/${STAGING_CRAFT}/storage/runtime/assets/*" &&
+    ssh $STAGING_DOMAIN "rm -rf ~/${STAGING_CRAFT}/storage/runtime/cache/*" &&
+    ssh $STAGING_DOMAIN "rm -rf ~/${STAGING_CRAFT}/storage/runtime/compiled_templates/*" &&
+    echo "DELETE FROM craft_assettransformindex;" | ssh $STAGING_DOMAIN "mysql -v --user=craft --password=${STAGING_DB_PASSWORD} craft" &&
+    echo "DELETE FROM craft_assetindexdata;" | ssh $STAGING_DOMAIN "mysql -v --user=craft --password=${STAGING_DB_PASSWORD} craft" &&
+    echo "UPDATE craft_info SET siteUrl='https://tgp-clone.staging.d-i.co'" | ssh $STAGING_DOMAIN "mysql -v --user=craft --password=${STAGING_DB_PASSWORD} craft" &&
+    echo "Migration complete."
