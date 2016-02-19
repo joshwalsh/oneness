@@ -2,10 +2,11 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>{{ siteName }}</title>
+  <title>{% if entry.titleTag %}{{ entry.titleTag }}{% else %}{{ siteName }}{% endif %}</title>
   <link rel="home" href="{{ siteUrl }}">
   <meta name="robots" content="index,follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ entry.metaDescription }}">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
@@ -13,7 +14,6 @@
 
   <header id="header" class="header" role="banner">
     <div class="nav">
-
     </div>
   </header>
 
