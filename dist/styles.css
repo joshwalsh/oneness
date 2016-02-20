@@ -1086,6 +1086,18 @@ embed {
   margin: 0 0 5px 0;
 }
 
+.nav {
+  margin-top: 0;
+  padding-left: 0;
+}
+.nav > li {
+  display: inline-block;
+  margin-right: 25.6px;
+}
+.nav > li:last-child {
+  margin-right: 0;
+}
+
 .notification {
   padding: 25.6px;
   margin-bottom: 25.6px;
