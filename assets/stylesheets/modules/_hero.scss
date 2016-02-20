@@ -1,0 +1,14 @@
+.hero {
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+
+  padding: em(36px);
+
+  &__text {
+    font-family: $headline-font;
+    font-size: em(36px);
+    color: #fff;
+  }
+}
