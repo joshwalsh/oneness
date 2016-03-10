@@ -2,35 +2,76 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>{% if entry.titleTag %}{{ entry.titleTag }}{% else %}{{ siteName }}{% endif %}</title>
+  <title>Discover Oneness Foundation</title>
   <link rel="home" href="{{ siteUrl }}">
   <meta name="robots" content="index,follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ entry.metaDescription }}">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-
-  <header id="header" class="header" role="banner">
-    <div class="brand">
-      <img src="/images/logo.svg" height="50px" alt="Discover Oneness Foundation Logo">
+  <header class="l-header">
+    <div class="l-container">
+      <div class="row">
+        <div class="col-2">
+          <a href="/"><img class="logo" src="/images/oneness-logo.svg" /></a>
+        </div>
+      </div>
     </div>
-
-    <ul class="nav">
-      <li><a href="/">Home</a></li>
-    </ul>
   </header>
 
-  <main id="content" role="main">
-    <div class="main-content">
-      {% block content %}{% endblock %}
+  <nav role="navigation" class="navbar">
+    <div class="l-container">
+      <ul class="nav nav--main">
+        <li><a href="/" class="active">Home</a></li>
+      </ul>
     </div>
+  </nav>
+
+  <main id="content" role="main">
+    {% block content %}{% endblock %}
   </main>
 
-  <footer>
-
-  </footer>
+  <footer class="l-footer txt-white">
+  <div class="l-section">
+    <div class="l-container">
+      <div class="row">
+        <div class="col-3">
+          <h3 class="tertiary-headline txt-white">Resources</h3>
+          <ul class="list-plain txt-small">
+            <li><a href="http://discoverhelp.com">Discover Help</a></li>
+            <li><a href="http://www.ratanjit.com/">Ratanjit S. Sondhe</a></li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <h3 class="tertiary-headline txt-white">Contact</h3>
+          <ul class="list-plain txt-small">
+            <li><a href="mailto:info@discoverhelp.com">info@discoverhelp.com</a></li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul class="list-horizontal social">
+            <li>
+              <a href="https://facebook.com/Ratanjit-S-Sondhe-258987162709">
+                <img src="/images/facebook.svg" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/Ratanjit_Sondhe">
+                <img src="/images/twitter.svg" alt="Twitter" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ptl">
+        <small>&copy; Copyright 2015 Discover Oneness Foundation</small>
+      </div>
+    </div>
+  </div>
+</footer>
 
   <script src="/assets/application.js"></script>
   <script>

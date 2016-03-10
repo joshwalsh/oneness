@@ -5,7 +5,12 @@
 {% include '_components/_heroSection.html' with { 'component' : entry.heroSection } %}
 
 <div class="l-container">
-  
+  <div>
+    {% for item in craft.entries.section('series') %}
+      <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+      <p>{{ entry.briefDescription }}</p>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

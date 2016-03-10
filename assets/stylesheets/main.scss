@@ -1,5 +1,6 @@
 // 3RD PARTY
 // ------------------------------
+@import "bourbon/bourbon";
 @import "normalize";
 
 // BASE
@@ -19,6 +20,8 @@
 // MODULES
 // ------------------------------
 
+@import "modules/blocks";
+@import "modules/brand";
 @import "modules/buttons";
 @import "modules/embeds";
 @import "modules/forms";
@@ -27,6 +30,8 @@
 @import "modules/media";
 @import "modules/nav";
 @import "modules/notifications";
+@import "modules/overlay";
+@import "modules/products";
 @import "modules/tables";
 @import "modules/tiles";
 

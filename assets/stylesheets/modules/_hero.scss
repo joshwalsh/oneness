@@ -1,14 +1,22 @@
+// BUTTON STYLES
+// -------------
+
 .hero {
-  background-color: #ddd;
+  position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  padding: em(20) 0;
 
-  padding: em(36px);
-
-  &__text {
-    font-family: $headline-font;
-    font-size: em(36px);
+  &__headline {
+    @extend %headline;
+    @include font-size(32);
     color: #fff;
+    font-weight: normal;
+    margin: $expanded-whitespace 0;
+
+    @include respond-to(em(600)) {
+      @include font-size(44);
+    }
   }
+
 }

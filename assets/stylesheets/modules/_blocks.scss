@@ -1,0 +1,40 @@
+// BLOCK STYLES
+// ---------------
+
+.block {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(flex-start);
+
+  &__media,
+  &__content {
+    @include display(flex);
+
+    @include respond-to(em(500)) {
+      width: 50%;
+    }
+  }
+
+  &__content {
+    background: $brand-dark-blue;
+    color: #fff;
+    padding: $expanded-whitespace
+  }
+
+  &--family &__media {
+    background: url(../images/group-sunrise.jpg) no-repeat center center;
+    background-size: cover;
+  }
+
+  // No flexbox version presents a float-based layout
+  // for less capable browsers (pre IE10)
+
+  .no-flexbox & {
+    display: table;
+
+    &__media,
+    &__content {
+      display: table-cell;
+    }
+  }
+}

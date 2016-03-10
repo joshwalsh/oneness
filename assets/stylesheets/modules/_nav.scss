@@ -1,13 +1,52 @@
+// NAV STYLES
+// ----------------
+
 .nav {
-  margin-top: 0;
-  padding-left: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
 
-  > li {
-    display: inline-block;
-    margin-right: $default-whitespace;
 
-    &:last-child {
-      margin-right: 0;
+  &--main {
+    > li {
+      color: #fff;
+      display: inline;
+
+      > a {
+        text-decoration: none;
+        padding: em(12);
+        display: inline-block;
+
+        &:hover, &.active {
+          background: #fff;
+          color: $brand-blue;
+          opacity: 1;
+        }
+      }
+
+      @include respond-to(em(600), "max-width") {
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+
+        &:last {
+          border-bottom: 0;
+        }
+
+        > a {
+          display: block;
+
+          &:hover, &.active {
+            background: $brand-blue;
+            color: #fff;
+            opacity: 1;
+          }
+        }
+      }
     }
   }
+}
+
+.navbar {
+  background: $brand-blue;
 }
