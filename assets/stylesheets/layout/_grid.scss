@@ -1,12 +1,6 @@
 // GRID
 // --------------------------------------------
 
-// Setup the variables with Bourbon's Flex Grid
-
-$fg-column: 60px;
-$fg-gutter: 20px;
-$fg-max-columns: 12;
-
 // Construct the grid
 
 .row {
@@ -14,7 +8,7 @@ $fg-max-columns: 12;
 }
 
 %col-base {
-  @include respond-to(em(700)) {
+  @include respond-to(em(700px)) {
     float: left;
     margin-left: flex-gutter();
 
@@ -33,21 +27,9 @@ $fg-max-columns: 12;
   }
 }
 
-.row--gutterless {
-  @for $i from 1 through $fg-max-columns {
-    .col-#{$i} {
-      @include respond-to(em(700)) {
-        margin: 0;
-        float: left;
-        width: $i / $fg-max-columns * 100%;
-      }
-    }
-  }
-}
-
 @for $i from 1 through $fg-max-columns {
   .col-#{$i} {
-    @include respond-to(em(700)) {
+    @include respond-to(em(700px)) {
       @extend %col-base;
       width: flex-grid($i);
     }
@@ -62,12 +44,12 @@ $fg-max-columns: 12;
 
 @for $i from 1 through $fg-max-columns {
   .push-#{$i} {
-    @include respond-to(em(700)) {
+    @include respond-to(em(700px)) {
       margin-left: push($i, false);
     }
 
     &:first-child {
-      @include respond-to(em(700)) {
+      @include respond-to(em(700px)) {
         margin-left: push($i, true);
       }
     }

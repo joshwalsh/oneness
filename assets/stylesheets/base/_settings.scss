@@ -3,15 +3,13 @@
 
 // Brand colors
 // ------------------
-// Drop in the colors that make
-// up the brand in this section
 
 $brand-blue: #3C5896;
 $brand-dark-blue: #33374F;
 
 // Default colors
 
-$default-text-color: #5E5E5E;
+$default-text-color: #333;
 $default-border-color: #ccc;
 
 // Link colors
@@ -21,8 +19,8 @@ $link-disabled: #dedede;
 
 // Button colors
 
-$button-text-color: #fff;
-$button-default: $brand-blue;
+$button-text-color: #333;
+$button-default: #fff;
 
 // Notification colors
 
@@ -34,7 +32,7 @@ $notification-notice: #31708f;
 // CONTENT DEFAULTS
 // ------------------
 
-$default-font-size: 18px;
+$default-font-size: 16px;
 $default-leading: 1.6;
 $default-whitespace: 1.6 * $default-font-size;
 $condensed-whitespace: .5 * $default-whitespace;
@@ -43,17 +41,21 @@ $expanded-whitespace: 2 * $default-whitespace;
 // FONTS
 // ------------------
 
-$headline-font: 'Droid Serif', $helvetica; // TODO: Default to Helvetica for now, to be changed later
-$sans-serif-font: $helvetica;
-$serif-font: 'Lato', $georgia;
-$code-font: $monospace;
+$headline-font: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif; // TODO: Default to Helvetica for now, to be changed later
+$sans-serif-font: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$serif-font: "Georgia", "Cambria", "Times New Roman", "Times", serif;
+$code-font: "Bitstream Vera Sans Mono", "Consolas", "Courier", monospace;
 
 // LAYOUT
 // ------------------
 
-// NOTE: Be sure to update the em calculator to reflect
-// any changes in the $default-font-size variable above.
-// For example, if the font-size is updated to 14px, then
-// the new value should be $l-max-width: em(960, 14);
+// Max-width of site container
 
-$l-max-width: em(1152, 18);
+$l-max-width: em(960px);
+
+// Setup the grid variables with Bourbon's
+// Flex Grid found in _helpers.scss
+
+$fg-column: 60px;
+$fg-gutter: 20px;
+$fg-max-columns: 12;

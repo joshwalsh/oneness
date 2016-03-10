@@ -9,7 +9,7 @@
 
   &__title {
     margin: 0 0 $condensed-whitespace 0;
-    @include font-size(20);
+    font-size: em(20px);
   }
 
   &--alert {

@@ -5,17 +5,17 @@
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: em(20) 0;
+  padding: em(20px) 0;
 
   &__headline {
     @extend %headline;
-    @include font-size(32);
+    font-size: em(32px);
     color: #fff;
     font-weight: normal;
     margin: $expanded-whitespace 0;
 
-    @include respond-to(em(600)) {
-      @include font-size(44);
+    @include respond-to(em(600px)) {
+      font-size: em(44px);
     }
   }
 

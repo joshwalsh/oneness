@@ -15,7 +15,7 @@
 
       > a {
         text-decoration: none;
-        padding: em(12);
+        padding: em(12px);
         display: inline-block;
 
         &:hover, &.active {
@@ -25,7 +25,7 @@
         }
       }
 
-      @include respond-to(em(600), "max-width") {
+      @include respond-to(em(600px), "max-width") {
         display: block;
         border-bottom: 1px solid rgba(255,255,255,0.3);
 

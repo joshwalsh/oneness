@@ -9,59 +9,15 @@
 
 
 %headline {
-  color: $brand-blue;
   margin-top: 0;
-  margin-bottom: $default-whitespace;
   font-family: $headline-font;
   line-height: 1.2;
 }
 
 .primary-headline {
   @extend %headline;
-  @include font-size(36);
-  font-weight: bold;
 }
 
 .secondary-headline {
   @extend %headline;
-  @include font-size(24);
-  font-weight: normal;
-}
-
-.tertiary-headline {
-  margin-top: 0;
-  line-height: 1.2;
-  @include font-size(20);
-  font-weight: 600;
-}
-
-.txt-white {
-  color: #fff;
-}
-
-.txt-gray {
-  color: #8E8E8E;
-}
-
-.txt-small {
-  @include font-size(14);
-}
-
-.prose {
-  font-family: $headline-font;
-  font-style: italic;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #A1981B;
-  padding: em(20);
-  border-top: 2px solid #A1981B;
-  border-bottom: 2px solid #A1981B;
-  background: #F0F0E8;
-}
-
-.intro {
-  font-family: $headline-font;
-  font-size: 1.2em;
-  font-style: italic;
 }

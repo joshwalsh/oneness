@@ -2,10 +2,6 @@
 // -------------
 
 .button {
-  @include user-select(none);
-  @include appearance(none);
-  @include font-size(14);
-  font-weight: 600;
   display: inline-block;
   position: relative;
   margin: 0;
@@ -15,10 +11,13 @@
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
+  user-select: none;
   white-space: nowrap;
   color: $button-text-color;
   background: $button-default;
-  border: none;
+  border: 1px solid $default-border-color;
+  border-radius: 3px;
+  -webkit-appearance: none;
 
   &:hover,
   &:focus {

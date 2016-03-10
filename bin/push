@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 rsync -avz --no-o --no-g --no-p --chmod=g+w --exclude-from=.rsync-exclude --delete source/ deploy@oneness.staging.d-i.co:/srv/www/oneness.staging.d-i.co &&
-  rm -rf dist && broccoli build dist &&
+  rm -rf dist && gulp build &&
   rsync -avz --no-o --no-g --no-p --chmod=g+w --delete dist/ deploy@oneness.staging.d-i.co:/srv/www/oneness.staging.d-i.co/public/assets
