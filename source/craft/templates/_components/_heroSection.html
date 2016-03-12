@@ -1,9 +1,0 @@
-{% for block in component %}
-  {% if block.type == "heroContent" %}
-    <div class="hero" style="background-image: url({{ block.backgroundImage.first().url }})">
-      <div class="l-container">
-        <p class="hero__headline">{{ block.text }}</p>
-      </div>
-    </div>
-  {% endif %}
-{% endfor %}

@@ -10,7 +10,7 @@
 
   &--main {
     > li {
-      color: #fff;
+      color: #444;
       display: inline;
 
       > a {
@@ -19,8 +19,8 @@
         display: inline-block;
 
         &:hover, &.active {
-          background: #fff;
-          color: $brand-blue;
+          background: #ccc;
+          color: #222;
           opacity: 1;
         }
       }
@@ -37,8 +37,8 @@
           display: block;
 
           &:hover, &.active {
-            background: $brand-blue;
-            color: #fff;
+            background: #ddd;
+            color: #222;
             opacity: 1;
           }
         }
@@ -48,5 +48,5 @@
 }
 
 .navbar {
-  background: $brand-blue;
+  background: #ddd;
 }
