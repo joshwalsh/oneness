@@ -3,14 +3,39 @@
 {% block content %}
 
 <div class="l-container">
-  <p class="dev">Highlight each of our series, and link into them</p>
-  {% for entry in craft.entries.section('series').level(1) %}
-      <div class="series">
-          <h2>{{ entry.title }}</h2>
-          <p>{{ entry.briefDescription }}</p>
-          <a href="{{ entry.url }}">Continue reading</a>
+  {% set quickthoughts = craft.entries({
+    section: 'quickthoughts',
+    with: ['relatedTaxonomies'],
+    limit: 1
+  }) %}
+  <p class="dev">Show a random quick thought, and make it shareable.</p>
+  {% for quickthought in quickthoughts %}
+    <div class="quickthought">
+      <p class="quickthought__text">{{ quickthought.briefDescription }}</p>
+
+      <div class="quickthought__share"><a href="{{quickthought.url}}" class="button button--small">Share</a></div>
+
+      <div class="quickthought__related">
+        {% if quickthought.relatedTaxonomies | length %}
+          {% for seriesItem in quickthought.relatedTaxonomies %}
+            {{ seriesItem.link }}
+          {% endfor %}
+        {% endif %}
       </div>
+    </div>
   {% endfor %}
+
+  <p class="dev">Highlight each of our series, and link into them</p>
+
+  <div class="tile-container">
+    {% for entry in craft.entries.section('series').level(1) %}
+      <div class="tile__item series">
+        <h2>{{ entry.title }}</h2>
+        <p>{{ entry.briefDescription }}</p>
+        <a href="{{ entry.url }}">Continue reading</a>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
