@@ -1,0 +1,28 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="l-container">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="primary-headline">{{ entry.title }}</h1>
+
+      {% include '_components/_mainContent' with {
+        'matrix': entry.mainContent
+      } %}
+    </div>
+  </div>
+
+  <div class="col-4">
+    {% if entry.hasDescendants() %}
+      {% set subpages = craft.entries.descendantOf(entry) %}
+
+      <ul>
+        {% for page in subpages %}
+          <li>{{page.link}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+{% endblock %}
