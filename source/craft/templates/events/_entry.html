@@ -1,0 +1,21 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="l-container">
+  <h1 class="primary-headline">{{ entry.title }}</h1>
+
+  <ul>
+    <li><strong>When:</strong> {{ entry.dateTime }} for {{ entry.duration }}</li>
+    <li><strong>Where:</strong> {{ entry.location }}</li>
+    <li><strong>Cost:</strong> ${{ entry.cost }}</li>
+  </ul>
+
+  {% include '_components/_mainContent' with {
+    'matrix': entry.mainContent
+  } %}
+
+  <a href="{{ entry.rsvpLink }}" class="button">RSVP</a>
+</div>
+
+{% endblock %}
