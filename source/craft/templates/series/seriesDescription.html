@@ -1,0 +1,20 @@
+<div class="l-container">
+  <h1 class="primary-headline">{{ entry.title }}</h1>
+
+  {% include '_components/_mainContent' with {
+    'matrix': entry.mainContent
+  } %}
+
+  {% if entry.hasDescendants() %}
+    {% set seriesItems = craft.entries.descendantOf(entry) %}
+
+    <ol>
+      {% for item in seriesItems %}
+          <li>
+              <p><strong>{{item.link}}</strong>: {{item.briefDescription}}</p>
+          </li>
+      {% endfor %}
+    </ol>
+
+{% endif %}
+</div>

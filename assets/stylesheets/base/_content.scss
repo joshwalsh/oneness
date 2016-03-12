@@ -21,3 +21,10 @@
 .secondary-headline {
   @extend %headline;
 }
+
+.dev {
+  background-color: #fee;
+  color:#900;
+  font-weight: bold;
+  padding: em(4px);
+}
