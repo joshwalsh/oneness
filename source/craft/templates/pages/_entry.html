@@ -14,6 +14,12 @@
   </div>
 
   <div class="col-4">
+    {% set parent = entry.getParent() %}
+
+    {% if parent %}
+      <p>Back to {{parent.link}}</p>
+    {% endif %}
+
     {% if entry.hasDescendants() %}
       {% set subpages = craft.entries.descendantOf(entry) %}
 
