@@ -1,0 +1,21 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="l-container">
+  <div class="quickthought quickthought--large">
+    {{ entry.briefDescription }}
+  </div>
+
+  <p class="dev">Insert buttons to quick share this on Facebook or Twitter.</p>
+
+  <h2>Related:</h2>
+
+  <ul>
+    {% for relatedItem in entry.relatedTaxonomies %}
+      <li>{{ relatedItem.link }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

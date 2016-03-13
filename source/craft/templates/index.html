@@ -17,8 +17,8 @@
 
       <div class="quickthought__related">
         {% if quickthought.relatedTaxonomies | length %}
-          {% for seriesItem in quickthought.relatedTaxonomies %}
-            {{ seriesItem.link }}
+          {% for relatedItem in quickthought.relatedTaxonomies %}
+            {{ relatedItem.link }}
           {% endfor %}
         {% endif %}
       </div>

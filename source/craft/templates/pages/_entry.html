@@ -11,24 +11,24 @@
         'matrix': entry.mainContent
       } %}
     </div>
-  </div>
 
-  <div class="col-4">
-    {% set parent = entry.getParent() %}
+    <div class="col-4">
+      {% set parent = entry.getParent() %}
 
-    {% if parent %}
-      <p>Back to {{parent.link}}</p>
-    {% endif %}
+      {% if parent %}
+        <p>Back to {{parent.link}}</p>
+      {% endif %}
 
-    {% if entry.hasDescendants() %}
-      {% set subpages = craft.entries.descendantOf(entry) %}
+      {% if entry.hasDescendants() %}
+        {% set subpages = craft.entries.descendantOf(entry) %}
 
-      <ul>
-        {% for page in subpages %}
-          <li>{{page.link}}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+        <ul>
+          {% for page in subpages %}
+            <li>{{page.link}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
   </div>
 
 {% endblock %}
