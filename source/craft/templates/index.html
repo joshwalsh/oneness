@@ -24,28 +24,48 @@
       </div>
     </div>
   {% endfor %}
+</div>
 
-  <p class="dev">Highlight each of our wisdom series, and link into them</p>
+<div class="l-container">
+  <div class="row">
+    <div class="col-8">
+      {% paginate craft.entries.section('posts').limit(10) as pageInfo, posts %}
 
-  <div class="tile-container">
-    {% for entry in craft.entries.section('wisdom').level(1) %}
-      <div class="tile__item wisdom">
-        <h2>{{ entry.title }}</h2>
-        <p>{{ entry.briefDescription }}</p>
-        <a href="{{ entry.url }}">Continue reading</a>
-      </div>
-    {% endfor %}
+      {% for post in posts %}
+        <div class="post">
+          <h2>{{ post.title }}</h2>
+          <p>{{ post.relatedAuthor.first().link }}</p>
+          {{post.excerpt}}
+          <a href="{{ post.url }}">Continue reading</a>
+        </div>
+      {% endfor %}
+
+      {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
+      {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
+    </div>
+    <div class="col-4">
+      <p class="dev">Highlight each of our wisdom series, and link into them</p>
+
+      {% for entry in craft.entries.section('wisdom').level(1) %}
+        <div class="wisdom">
+          <h2>{{ entry.title }}</h2>
+          <p>{{ entry.briefDescription }}</p>
+          <a href="{{ entry.url }}">Continue reading</a>
+        </div>
+      {% endfor %}
+
+      <p class="dev">Show the next 2 upcoming evens</p>
+
+      {% for event in craft.entries.section('events').order('dateTime').limit(2) %}
+          <div class="event">
+              <h2>{{ event.dateTime }}: {{ event.title }}</h2>
+              <p>{{ event.briefDescription }}</p>
+              <p><a href="{{ event.url }}">Learn more, and RSVP</a></p>
+          </div>
+      {% endfor %}
+    </div>
   </div>
 
-  <p class="dev">Show the next upcoming event</p>
-
-  {% for event in craft.entries.section('events').order('dateTime').limit(1) %}
-      <div class="event">
-          <h2>{{ event.dateTime }}: {{ event.title }}</h2>
-          <p>{{ event.briefDescription }}</p>
-          <p><a href="{{ event.url }}">Learn more, and RSVP</a></p>
-      </div>
-  {% endfor %}
 </div>
 
 {% endblock %}
