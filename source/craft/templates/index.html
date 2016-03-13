@@ -36,6 +36,24 @@
       </div>
     {% endfor %}
   </div>
+
+  <p class="dev">Show the next upcoming event</p>
+
+  {% for event in craft.entries.section('events').order('dateTime').limit(1) %}
+      <div class="event">
+          <h2>{{ event.dateTime }}: {{ event.title }}</h2>
+          <p>{{ event.briefDescription }}</p>
+          <p><a href="{{ event.url }}">Learn more, and RSVP</a></p>
+      </div>
+  {% endfor %}
+
+  <p class="dev">Show a category list of topics to peruse</p>
+
+  <div class="tile-container tile-container--four">
+    {% for topic in craft.entries.section('topics').order('title') %}
+        <div class="tile__item">{{ topic.link }}</div>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
