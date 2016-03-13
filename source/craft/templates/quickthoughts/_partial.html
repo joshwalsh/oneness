@@ -1,0 +1,13 @@
+<div class="quickthought">
+  <p class="quickthought__text">{{ quickthought.briefDescription }}</p>
+
+  <div class="quickthought__share"><a href="{{quickthought.url}}" class="button button--small">Share</a></div>
+
+  <div class="quickthought__related">
+    {% if quickthought.relatedTaxonomies | length %}
+      {% for relatedItem in quickthought.relatedTaxonomies %}
+        {{ relatedItem.link }}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{% for event in events %}
+  {% include 'events/_partial' with {
+    'event': event
+  } %}
+{% endfor %}

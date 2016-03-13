@@ -3,11 +3,28 @@
 {% block content %}
 
 <div class="l-container">
-  <h1 class="primary-headline">{{ entry.title }}</h1>
+  <div class="row">
+    <div class="col-8">
+      <h1 class="primary-headline">{{ entry.title }}</h1>
 
-  {% include '_components/_mainContent' with {
-    'matrix': entry.mainContent
-  } %}
+      {% include '_components/_mainContent' with {
+        'matrix': entry.mainContent
+      } %}
+
+      {% paginate craft.entries.section('posts').relatedTo(entry).limit(10) as pageInfo, posts %}
+
+      {% for post in posts %}
+        {% include 'posts/_partial' with {
+          'post': post
+        } %}
+      {% endfor %}
+
+      {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
+      {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
 </div>
 
 {% endblock %}

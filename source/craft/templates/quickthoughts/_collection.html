@@ -1,0 +1,5 @@
+{% for quickthought in quickthoughts %}
+  {% include 'quickthoughts/_partial' with {
+    'quickthought': quickthought
+  } %}
+{% endfor %}

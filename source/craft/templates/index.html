@@ -8,22 +8,10 @@
     with: ['relatedTaxonomies'],
     limit: 1
   }) %}
-  <p class="dev">Show a random quick thought, and make it shareable.</p>
-  {% for quickthought in quickthoughts %}
-    <div class="quickthought">
-      <p class="quickthought__text">{{ quickthought.briefDescription }}</p>
 
-      <div class="quickthought__share"><a href="{{quickthought.url}}" class="button button--small">Share</a></div>
-
-      <div class="quickthought__related">
-        {% if quickthought.relatedTaxonomies | length %}
-          {% for relatedItem in quickthought.relatedTaxonomies %}
-            {{ relatedItem.link }}
-          {% endfor %}
-        {% endif %}
-      </div>
-    </div>
-  {% endfor %}
+  {% include 'quickthoughts/_collection' with {
+    'quickthoughts': quickthoughts
+  } %}
 </div>
 
 <div class="l-container">
@@ -31,38 +19,21 @@
     <div class="col-8">
       {% paginate craft.entries.section('posts').limit(10) as pageInfo, posts %}
 
-      {% for post in posts %}
-        <div class="post">
-          <h2>{{ post.link }}</h2>
-          <p>{{ post.relatedAuthor.first().link }}</p>
-          {{post.excerpt}}
-          <a href="{{ post.url }}">Continue reading</a>
-        </div>
-      {% endfor %}
+      {% include 'posts/_collection' with {
+        'posts': posts
+      } %}
 
       {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
       {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
     </div>
     <div class="col-4">
-      <p class="dev">Highlight each of our wisdom series, and link into them</p>
+      {% include 'wisdom/_collection' with {
+        'wisdoms': craft.entries.section('wisdom').level(1)
+      } %}
 
-      {% for entry in craft.entries.section('wisdom').level(1) %}
-        <div class="wisdom">
-          <h2>{{ entry.title }}</h2>
-          <p>{{ entry.briefDescription }}</p>
-          <a href="{{ entry.url }}">Continue reading</a>
-        </div>
-      {% endfor %}
-
-      <p class="dev">Show the next 2 upcoming evens</p>
-
-      {% for event in craft.entries.section('events').order('dateTime').limit(2) %}
-          <div class="event">
-              <h2>{{ event.dateTime }}: {{ event.title }}</h2>
-              <p>{{ event.briefDescription }}</p>
-              <p><a href="{{ event.url }}">Learn more, and RSVP</a></p>
-          </div>
-      {% endfor %}
+      {% include 'events/_collection' with {
+        'events': craft.entries.section('events').order('dateTime').limit(2)
+      } %}
     </div>
   </div>
 

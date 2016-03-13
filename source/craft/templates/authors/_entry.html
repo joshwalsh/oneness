@@ -11,14 +11,9 @@
 
   {% paginate craft.entries.section('posts').relatedTo(entry).limit(10) as pageInfo, posts %}
 
-  {% for post in posts %}
-    <div class="post">
-      <h2>{{ post.link }}</h2>
-      <p>{{ post.relatedAuthor.first().link }}</p>
-      {{post.excerpt}}
-      <a href="{{ post.url }}">Continue reading</a>
-    </div>
-  {% endfor %}
+  {% include 'posts/_collection' with {
+    'posts': posts
+  } %}
 
   {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
   {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
