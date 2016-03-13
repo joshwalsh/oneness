@@ -1,0 +1,24 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="l-container">
+  <h1 class="primary-headline">{{ entry.title }}</h1>
+
+  {% include '_components/_mainContent' with {
+    'matrix': entry.mainContent
+  } %}
+
+  <div class="tile-container tile-container--four">
+    {% for package in craft.entries.section('donationPackages').order('amount') %}
+      <div class="tile__item">
+        <h2>{{ package.title }}</h2>
+        <a href="#" class="button">${{ package.amount|number_format(2, '.', ',') }}</a>
+      </div>
+    {% endfor %}
+  </div>
+
+  <p>To make a larger donation, please contact us.</p>
+</div>
+
+{% endblock %}
