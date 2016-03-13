@@ -6,10 +6,10 @@
   } %}
 
   {% if entry.hasDescendants() %}
-    {% set seriesItems = craft.entries.descendantOf(entry) %}
+    {% set wisdomItems = craft.entries.descendantOf(entry) %}
 
     <ol>
-      {% for item in seriesItems %}
+      {% for item in wisdomItems %}
           <li>
               <p><strong>{{item.link}}</strong>: {{item.briefDescription}}</p>
           </li>

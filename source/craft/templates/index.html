@@ -25,11 +25,11 @@
     </div>
   {% endfor %}
 
-  <p class="dev">Highlight each of our series, and link into them</p>
+  <p class="dev">Highlight each of our wisdom series, and link into them</p>
 
   <div class="tile-container">
-    {% for entry in craft.entries.section('series').level(1) %}
-      <div class="tile__item series">
+    {% for entry in craft.entries.section('wisdom').level(1) %}
+      <div class="tile__item wisdom">
         <h2>{{ entry.title }}</h2>
         <p>{{ entry.briefDescription }}</p>
         <a href="{{ entry.url }}">Continue reading</a>
