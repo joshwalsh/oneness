@@ -1,0 +1,13 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="l-container">
+  <h1 class="primary-headline">{{ entry.title }}</h1>
+
+  {% include '_components/_mainContent' with {
+    'matrix': entry.mainContent
+  } %}
+</div>
+
+{% endblock %}
