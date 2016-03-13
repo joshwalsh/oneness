@@ -18,13 +18,9 @@
             {% if topic.hasDescendants() %}
               {% set subtopics = craft.entries.descendantOf(topic) %}
 
-              <ul>
-                {% for subtopic in subtopics %}
-                    <li>
-                        <p><strong>{{subtopic.link}}</strong></p>
-                    </li>
-                {% endfor %}
-              </ul>
+              {% include 'topics/_collection' with {
+                'topics': subtopics
+              } %}
             {% endif %}
         </div>
     {% endfor %}

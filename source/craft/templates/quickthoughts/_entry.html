@@ -11,11 +11,11 @@
 
   <h2>Related:</h2>
 
-  <ul>
-    {% for relatedItem in entry.relatedTaxonomies %}
-      <li>{{ relatedItem.link }}</li>
-    {% endfor %}
-  </ul>
+  {% include '_components/_related' with {
+    'events': craft.entries.section('events').relatedTo(entry),
+    'topics': craft.entries.section('topics').relatedTo(entry),
+    'wisdoms': craft.entries.section('wisdom').relatedTo(entry)
+  } %}
 </div>
 
 {% endblock %}

@@ -1,0 +1,23 @@
+{% if wisdoms | length %}
+  <h3>Wisdom</h3>
+
+  {% include 'wisdom/_collection' with {
+    'wisdoms': wisdoms
+  } %}
+{% endif %}
+
+{% if topics | length %}
+  <h3>Topics</h3>
+
+  {% include 'topics/_collection' with {
+    'topics': topics
+  } %}
+{% endif %}
+
+{% if events | length %}
+  <h3>Events</h3>
+
+  {% include 'events/_collection' with {
+    'events': events
+  } %}
+{% endif %}
