@@ -5,22 +5,23 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  display: block;
-
 
   &--main {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+
     > li {
-      color: #444;
       display: inline;
 
       > a {
         text-decoration: none;
         padding: em(12px);
         display: inline-block;
+        color: #ddf;
 
         &:hover, &.active {
-          background: #ccc;
-          color: #222;
+          color: #fff;
           opacity: 1;
         }
       }
@@ -48,5 +49,5 @@
 }
 
 .navbar {
-  background: #ddd;
+
 }

@@ -2,17 +2,16 @@
 
 {% block content %}
 
-<div class="l-container">
-  {% set quickthoughts = craft.entries({
-    section: 'quickthoughts',
-    with: ['relatedTaxonomies'],
-    limit: 1
-  }) %}
 
-  {% include 'quickthoughts/_collection' with {
-    'quickthoughts': quickthoughts
-  } %}
-</div>
+{% set quickthoughts = craft.entries({
+  section: 'quickthoughts',
+  with: ['relatedTaxonomies'],
+  limit: 1
+}) %}
+
+{% include 'quickthoughts/_collection' with {
+  'quickthoughts': quickthoughts
+} %}
 
 <div class="l-container">
   <div class="row">

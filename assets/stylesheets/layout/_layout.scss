@@ -14,10 +14,15 @@
   margin: 0 auto;
   max-width: $l-max-width;
   width: 90%;
+  position: relative;
 }
 
 .l-section {
   margin-bottom: $default-whitespace;
+}
+
+.l-header {
+  background-color: #3476af;
 }
 
 // Layout helpers
