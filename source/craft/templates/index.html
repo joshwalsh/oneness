@@ -2,40 +2,47 @@
 
 {% block content %}
 
+<header class="l-header">
+  {% set mast = entry.mast.first %}
+  <div class="mast" style="background-image: url({{ mast.background.first.url }});">
+    <div class="l-container">
+      <a href="/"><img class="logo" src="/images/oneness-logo-white.svg" /></a>
 
-{% set quickthoughts = craft.entries({
-  section: 'quickthoughts',
-  with: ['relatedTaxonomies'],
-  limit: 1
-}) %}
-
-{% include 'quickthoughts/_collection' with {
-  'quickthoughts': quickthoughts
-} %}
-
-<div class="l-container">
-  <div class="row">
-    <div class="col-8">
-      {% paginate craft.entries.section('posts').limit(10) as pageInfo, posts %}
-
-      {% include 'posts/_collection' with {
-        'posts': posts
-      } %}
-
-      {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
-      {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
-    </div>
-    <div class="col-4">
-      {% include 'wisdom/_collection' with {
-        'wisdoms': craft.entries.section('wisdom').level(1)
-      } %}
-
-      {% include 'events/_collection' with {
-        'events': craft.entries.section('events').order('dateTime').limit(2)
-      } %}
+      <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
+      <h1 class="mast__headline">{{ mast.headline }}</h1>
     </div>
   </div>
+</header>
 
-</div>
+<main id="content" role="main">
+  <div class="l-container">
+    {% include 'wisdom/_collection' with {
+      'wisdoms': craft.entries.section('wisdom').level(1)
+    } %}
+
+    <hr>
+
+    <div class="row">
+      <div class="col-8">
+        {% include 'posts/_collection' with {
+          'posts': craft.entries.section('posts').limit(10)
+        } %}
+      </div>
+      <div class="col-4">
+        {% include 'topics/_collection' with {
+          'topics': craft.entries.section('topics')
+        } %}
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="l-footer">
+  <div class="l-section">
+    <div class="l-container">
+      <small>&copy; Copyright 2016 Discover Oneness Foundation</small>
+    </div>
+  </div>
+</footer>
 
 {% endblock %}
