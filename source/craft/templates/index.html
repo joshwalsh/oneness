@@ -1,20 +1,6 @@
-{% extends "_layout" %}
+{% extends "_home_layout" %}
 
 {% block content %}
-
-<header class="l-header">
-  {% set mast = entry.mast.first %}
-  <div class="mast" style="background-image: url({{ mast.background.first.url }});">
-    <div class="l-container">
-      <a href="/"><img class="logo" src="/images/oneness-logo-white.svg" /></a>
-
-      <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
-      <h1 class="mast__headline">{{ mast.headline }}</h1>
-    </div>
-  </div>
-</header>
-
-<main id="content" role="main">
   <div class="l-container">
     {% include 'wisdom/_collection' with {
       'wisdoms': craft.entries.section('wisdom').level(1)
@@ -35,14 +21,4 @@
       </div>
     </div>
   </div>
-</main>
-
-<footer class="l-footer">
-  <div class="l-section">
-    <div class="l-container">
-      <small>&copy; Copyright 2016 Discover Oneness Foundation</small>
-    </div>
-  </div>
-</footer>
-
 {% endblock %}

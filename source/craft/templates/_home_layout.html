@@ -14,7 +14,29 @@
 </head>
 <body>
 
+  <header class="l-header">
+    {% set mast = entry.mast.first %}
+    <div class="mast" style="background-image: url({{ mast.background.first.url }});">
+      <div class="l-container">
+        <a href="/"><img class="logo" src="/images/oneness-logo-white.svg" /></a>
+
+        <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
+        <h1 class="mast__headline">{{ mast.headline }}</h1>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" role="main">
   {% block content %}{% endblock %}
+  </main>
+
+  <footer class="l-footer">
+    <div class="l-section">
+      <div class="l-container">
+        <small>&copy; Copyright 2016 Discover Oneness Foundation</small>
+      </div>
+    </div>
+  </footer>
 
   <script src="/assets/application.js"></script>
   <script>
