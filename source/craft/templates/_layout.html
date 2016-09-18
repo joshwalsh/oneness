@@ -14,7 +14,33 @@
 </head>
 <body>
 
+  <header class="l-header">
+    <div class="navigation navigation--main">
+      <div class="l-container">
+        <ul>
+          {% for navLink in craft.entries.section('mainNavigation') %}
+            <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="logo">
+      <a href="/"><img src="/images/oneness-logo.svg" /></a>
+    </div>
+  </header>
+
+  <main id="content" role="main">
   {% block content %}{% endblock %}
+  </main>
+
+  <footer class="l-footer">
+    <div class="l-section">
+      <div class="l-container">
+        <small>&copy; Copyright 2016 Discover Oneness Foundation</small>
+      </div>
+    </div>
+  </footer>
 
   <script src="/assets/application.js"></script>
   <script>

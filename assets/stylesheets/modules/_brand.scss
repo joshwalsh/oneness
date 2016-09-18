@@ -1,30 +1,12 @@
 // BRAND STYLES
 // -------------------
 
-.mast {
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  min-height: 600px;
-
-  &__intro_headline {
-    margin-top: em(100px);
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    font-size: em(25px);
-  }
-
-  &__headline {
-    color: #fff;
-    margin-top: 0;
-    text-align: center;
-    font-size: em(50px);
-  }
-}
-
 .logo {
-  width: 200px;
-  max-width: 200px;
-  padding: 10px 0;
+  text-align: center;
+  
+  img {
+    width: 200px;
+    max-width: 200px;
+    padding: 10px 0;
+  }
 }

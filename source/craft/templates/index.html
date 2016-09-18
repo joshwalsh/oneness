@@ -1,6 +1,10 @@
-{% extends "_home_layout" %}
+{% extends "_layout" %}
 
 {% block content %}
+  {% include '_components/_mast' with {
+    'mast': entry.mast.first
+  } %}
+
   <div class="l-container">
     {% include 'wisdom/_collection' with {
       'wisdoms': craft.entries.section('wisdom').level(1)

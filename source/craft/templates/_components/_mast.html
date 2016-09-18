@@ -1,0 +1,10 @@
+{% if mast.background.first %}
+<div class="mast" style="background-image: url({{ mast.background.first.url }});">
+{% else %}
+<div class="mast">
+{% endif %}
+  <div class="l-container">
+    <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
+    <h1 class="mast__headline">{{ mast.headline }}</h1>
+  </div>
+</div>
