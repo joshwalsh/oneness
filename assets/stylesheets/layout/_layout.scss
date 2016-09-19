@@ -21,8 +21,16 @@
   margin-bottom: $default-whitespace;
 }
 
+.l-content-section {
+  padding: em(50px) 0;
+}
+
 .l-header {
-  
+
+}
+
+.l-divider {
+  padding: em(25px) 0;
 }
 
 // Layout helpers

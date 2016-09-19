@@ -1,11 +1,5 @@
-<div class="row">
-  <div class="tile-container">
-    {% for wisdom in wisdoms %}
-      <div class="tile__item">
-        {% include 'wisdom/_partial' with {
-          'wisdom': wisdom
-        } %}
-      </div>
-    {% endfor %}
-  </div>
-</div>
+{% for wisdom in wisdoms %}
+  {% include 'wisdom/_partial' with {
+    'wisdom': wisdom
+  } %}
+{% endfor %}
