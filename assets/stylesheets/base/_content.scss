@@ -12,14 +12,22 @@
   margin-top: 0;
   font-family: $headline-font;
   line-height: 1.2;
+  font-weight: 300;
 }
 
 .primary-headline {
   @extend %headline;
+  font-size: em(44px);
 }
 
 .secondary-headline {
   @extend %headline;
+  font-size: em(32px);
+}
+
+.tertiary-headline {
+  @extend %headline;
+  font-size: em(18px);
 }
 
 .dev {

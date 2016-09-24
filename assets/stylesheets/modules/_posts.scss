@@ -1,0 +1,21 @@
+.post {
+  & + .post {
+    margin-top: em(60px);
+    padding-top: em(60px);
+    border-top: 1px solid $brown;
+  }
+
+  &__title {
+    a {
+      color: $default-text-color;
+      text-decoration: none;
+    }
+  }
+
+  &__byline {
+    font-size: em(12px);
+    margin-top: em(-20px);
+    margin-bottom: em(30px);
+    color: #888;
+  }
+}

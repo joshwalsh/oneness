@@ -5,7 +5,7 @@
 {% endif %}
 
 {% if events | length %}
-  <h3>Events</h3>
+  <h3 class="tertiary-headline">Events</h3>
 
   {% include 'events/_collection' with {
     'events': events
@@ -13,7 +13,7 @@
 {% endif %}
 
 {% if topics | length %}
-  <h3>Topics</h3>
+  <h3 class="tertiary-headline">Topics</h3>
 
   {% include 'topics/_collection' with {
     'topics': topics

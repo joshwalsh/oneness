@@ -1,0 +1,29 @@
+{% extends "_layout" %}
+
+{% block content %}
+  {% include '_components/_mast' with {
+    'mast': entry.mast.first
+  } %}
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        {% include 'posts/_collection' with {
+          'posts': craft.entries.section('posts')
+        } %}
+      </div>
+      <div class="col-3">
+        <div class="sidebar">
+          {% include '_components/_related' with {
+            'wisdoms': [],
+            'events': [],
+            'topics': craft.entries.section('topics').order('title')
+          } %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

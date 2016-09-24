@@ -1,0 +1,27 @@
+.sidebar {
+  background: #E4F6FA;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+
+  .tertiary-headline {
+    font-size: em(18px);
+    padding: em(20px);
+  }
+
+  .list-vertical {
+    li + li {
+      border-top-color: $blue;
+    }
+
+    a {
+      display: block;
+      padding: em(10px) em(20px);
+      text-decoration: none;
+
+      &:hover {
+        background: #B9E0EA;
+      }
+    }
+  }
+}

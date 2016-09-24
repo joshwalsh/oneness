@@ -1,6 +1,8 @@
 <div class="post">
-  <h2>{{ post.link }}</h2>
-  <p>{{ post.relatedAuthor.first().link }}</p>
+  <h2 class="secondary-headline post__title">{{ post.link }}</h2>
+  <p class="post__byline">By: {{ post.relatedAuthor.first().link }} on {{ post.postDate | date("M d, Y") }}</p>
+
   {{post.excerpt}}
-  <a href="{{ post.url }}">Continue reading</a>
+
+  <a href="{{ post.url }}" class="button">Continue reading</a>
 </div>
