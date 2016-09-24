@@ -34,7 +34,13 @@
   <footer class="l-footer">
     <div class="l-section">
       <div class="l-container">
-        <small>&copy; Copyright 2016 Discover Oneness Foundation</small>
+        <ul class="list-horizontal">
+          {% for navLink in craft.entries.section('mainNavigation') %}
+            <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
+          {% endfor %}
+        </ul>
+
+        <p><small>&copy; Copyright 2016 Discover Oneness Foundation</small></p>
       </div>
     </div>
   </footer>

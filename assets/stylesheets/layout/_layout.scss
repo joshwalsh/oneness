@@ -29,6 +29,18 @@
 
 }
 
+.l-footer {
+  margin-top: em(20px);
+  background: $brown;
+  padding: em(40px) 0 em(20px) 0;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
 .l-divider {
   padding: em(25px) 0;
 }

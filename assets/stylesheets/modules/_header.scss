@@ -1,6 +1,6 @@
 .header {
   background: #fff;
-  padding: em(10px) em(10px);
+  padding: 0 em(10px) em(10px) 0;
 
   &-container {
     display: table;
@@ -30,7 +30,7 @@
 
     > li {
       display: inline;
-      padding: 0 em(10px);
+      padding: 0 em(20px);
 
       a {
         color: $gray;
