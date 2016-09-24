@@ -6,22 +6,30 @@
 
   .tertiary-headline {
     font-size: em(18px);
-    padding: em(20px);
+    padding: 0 em(20px) 0 em(20px);
   }
 
-  .list-vertical {
-    li + li {
-      border-top-color: $blue;
-    }
-
-    a {
-      display: block;
-      padding: em(10px) em(20px);
-      text-decoration: none;
-
-      &:hover {
-        background: #B9E0EA;
-      }
-    }
+  .list-plain {
+    padding: 0 em(20px) 0 em(20px);
   }
+
+  &__section {
+    padding-top: em(20px);
+    padding-bottom: em(20px);
+  }
+
+  .sidebar__section + .sidebar__section {
+    border-top: 1px solid $blue;
+  }
+
+  p {
+    font-size: em(12px);
+    padding-left: em(20px, 12px);
+    padding-right: em(20px, 12px);
+  }
+
+  li {
+    font-size: em(12px);
+  }
+
 }

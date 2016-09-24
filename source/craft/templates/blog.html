@@ -13,14 +13,12 @@
           'posts': craft.entries.section('posts')
         } %}
       </div>
-      <div class="col-3">
-        <div class="sidebar">
-          {% include '_components/_related' with {
-            'wisdoms': [],
-            'events': [],
-            'topics': craft.entries.section('topics').order('title')
-          } %}
-        </div>
+      <div class="col-4">
+        {% include '_components/_sidebar' with {
+          'wisdoms': [],
+          'events': [],
+          'topics': craft.entries.section('topics').order('title')
+        } %}
       </div>
     </div>
   </div>

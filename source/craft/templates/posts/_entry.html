@@ -2,22 +2,33 @@
 
 {% block content %}
 
-<div class="l-container">
-  <div class="row">
-    <div class="col-8">
-      <h1 class="primary-headline">{{ entry.title }}</h1>
-      <p>{{ entry.relatedAuthor.first().link }}</p>
+<div class="mast">
+  <div class="l-container">
+    <h1 class="mast__headline">{{ entry.title }}</h1>
+  </div>
+</div>
 
-      {% include '_components/_mainContent' with {
-        'matrix': entry.mainContent
-      } %}
-    </div>
-    <div class="col-4">
-      {% include '_components/_related' with {
-        'events': craft.entries.section('events').relatedTo(entry),
-        'topics': craft.entries.section('topics').relatedTo(entry),
-        'wisdoms': craft.entries.section('wisdom').relatedTo(entry)
-      } %}
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
+
+        <div class="author">
+          <h3 class="tertiary-headline">By: {{ entry.relatedAuthor.first().link }}</h3>
+          <p>{{ entry.relatedAuthor.first().briefDescription }}</p>
+          <p>Originally posted on {{ entry.postDate | date("M d, Y") }}.</p>
+        </div>
+      </div>
+      <div class="col-4">
+        {% include '_components/_sidebar' with {
+          'events': craft.entries.section('events').relatedTo(entry),
+          'topics': craft.entries.section('topics').relatedTo(entry),
+          'wisdoms': craft.entries.section('wisdom').relatedTo(entry)
+        } %}
+      </div>
     </div>
   </div>
 </div>
