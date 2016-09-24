@@ -14,19 +14,16 @@
 </head>
 <body>
 
-  <header class="l-header">
-    <div class="navigation navigation--main">
-      <div class="l-container">
-        <ul>
+  <header role="banner">
+    <div class="header l-container">
+      <div class="header-container">
+        <a class="logo" href="/">Discover Oneness Foundation</a>
+        <ul class="nav">
           {% for navLink in craft.entries.section('mainNavigation') %}
             <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
           {% endfor %}
         </ul>
       </div>
-    </div>
-
-    <div class="logo">
-      <a href="/"><img src="/images/oneness-logo.svg" /></a>
     </div>
   </header>
 

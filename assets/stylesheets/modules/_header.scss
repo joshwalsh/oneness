@@ -1,0 +1,42 @@
+.header {
+  background: #fff;
+  padding: em(10px) em(10px);
+
+  &-container {
+    display: table;
+    padding: em(10px) 0;
+    width: 100%;
+  }
+
+  .logo {
+    display: table-cell;
+    height: 88px;
+    width: 183px;
+    text-indent: -9999em;
+    vertical-align: middle;
+    background-size: 183px 88px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: url(/images/oneness-logo.svg);
+  }
+
+  .nav {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: em(14px);
+
+    > li {
+      display: inline;
+      padding: 0 em(10px);
+
+      a {
+        color: $gray;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+  }
+}
