@@ -14,7 +14,7 @@
 <div class="l-divider green-bg">
   <div class="l-container">
     {% include 'quickthoughts/_partial' with {
-      'quickthought': craft.entries.section('quickthoughts').order('RAND()').limit(1).first
+      'quickthought': craft.entries.section('quickthoughts').order('RAND()').first
     } %}
   </div>
 </div>

@@ -1,5 +1,5 @@
 {% if mast.background.first %}
-<div class="mast" style="background-image: url({{ mast.background.first.url }});">
+<div class="mast" style="background-image: url({{ mast.background.first.getUrl('mastPhoto') }});">
 {% else %}
 <div class="mast">
 {% endif %}
