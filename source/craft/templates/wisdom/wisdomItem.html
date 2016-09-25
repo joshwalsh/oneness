@@ -1,27 +1,36 @@
 {% set wisdom = entry.getParent() %}
-<div class="l-container">
-  <div class="row">
-    <div class="col-8">
-      <h1 class="primary-headline">{{ entry.title }}</h1>
+{% include '_components/_mast' with {
+  'mast': wisdom.mast.first
+} %}
 
-      <p>Part of the series on {{ wisdom.link }}.</p>
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        <h1 class="primary-headline">{{ entry.title }}</h1>
 
-      {% include '_components/_mainContent' with {
-        'matrix': entry.mainContent
-      } %}
-    </div>
-    <div class="col-4">
-      <h3>{{ wisdom.title }}</h3>
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
+      </div>
+      <div class="col-4">
+        <div class="sidebar">
+          <div class="sidebar__section">
+            <h3 class="tertiary-headline">Table of Contents</h3>
 
-      {% if wisdom.hasDescendants() %}
-        {% set wisdomItems = craft.entries.descendantOf(wisdom) %}
+            {% if wisdom.hasDescendants() %}
+              {% set wisdomItems = craft.entries.descendantOf(wisdom) %}
 
-        <ol>
-          {% for item in wisdomItems %}
-              <li>{{item.link}}</li>
-          {% endfor %}
-        </ol>
-      {% endif %}
+              <ol class="list-plain">
+                <li>{{wisdom.link}}</li>
+                {% for item in wisdomItems %}
+                    <li>{{item.link}}</li>
+                {% endfor %}
+              </ol>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

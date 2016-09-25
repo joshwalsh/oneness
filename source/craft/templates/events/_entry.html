@@ -2,29 +2,39 @@
 
 {% block content %}
 
-<div class="l-container">
-  <div class="row">
-    <div class="col-8">
-      <h1 class="primary-headline">{{ entry.title }}</h1>
+<div class="mast mast--small">
+  <div class="l-container">
+    <h1 class="mast__headline">{{ entry.title }}</h1>
+  </div>
+</div>
 
-      <ul>
-        <li><strong>When:</strong> {{ entry.dateTime }} for {{ entry.duration }}</li>
-        <li><strong>Where:</strong> {{ entry.location }}</li>
-        <li><strong>Cost:</strong> ${{ entry.cost }}</li>
-      </ul>
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        <ul class="list-plain">
+          <li><strong>When:</strong> {{ entry.dateTime }} for {{ entry.duration }}</li>
+          <li><strong>Where:</strong> {{ entry.location }}</li>
+          <li><strong>Cost:</strong> ${{ entry.cost }}</li>
+        </ul>
 
-      {% include '_components/_mainContent' with {
-        'matrix': entry.mainContent
-      } %}
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
 
-      <a href="{{ entry.rsvpLink }}" class="button">RSVP</a>
-    </div>
-    <div class="col-4">
-      {% include '_components/_sidebar' with {
-        'events': craft.entries.section('events').relatedTo(entry),
-        'topics': craft.entries.section('topics').relatedTo(entry),
-        'wisdoms': craft.entries.section('wisdom').relatedTo(entry)
-      } %}
+        {% if entry.rsvpLink %}
+          <a href="{{ entry.rsvpLink }}" class="button">RSVP</a>
+        {% else %}
+          <p><em>This is a private event.</em></p>
+        {% endif %}
+      </div>
+      <div class="col-4">
+        {% include '_components/_sidebar' with {
+          'events': craft.entries.section('events').relatedTo(entry),
+          'topics': craft.entries.section('topics').relatedTo(entry),
+          'wisdoms': craft.entries.section('wisdom').relatedTo(entry)
+        } %}
+      </div>
     </div>
   </div>
 </div>
