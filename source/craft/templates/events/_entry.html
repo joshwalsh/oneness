@@ -20,7 +20,7 @@
       <a href="{{ entry.rsvpLink }}" class="button">RSVP</a>
     </div>
     <div class="col-4">
-      {% include '_components/_related' with {
+      {% include '_components/_sidebar' with {
         'events': craft.entries.section('events').relatedTo(entry),
         'topics': craft.entries.section('topics').relatedTo(entry),
         'wisdoms': craft.entries.section('wisdom').relatedTo(entry)

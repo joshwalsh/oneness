@@ -15,9 +15,9 @@
       </div>
       <div class="col-4">
         {% include '_components/_sidebar' with {
-          'wisdoms': [],
-          'events': [],
-          'topics': craft.entries.section('topics').order('title')
+          'wisdoms': craft.entries.section('wisdom').relatedTo(entry),
+          'events': craft.entries.section('events').relatedTo(entry),
+          'topics': craft.entries.section('topics').relatedTo(entry)
         } %}
       </div>
     </div>
