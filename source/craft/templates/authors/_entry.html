@@ -2,21 +2,43 @@
 
 {% block content %}
 
-<div class="l-container">
-  <h1 class="primary-headline">{{ entry.title }}</h1>
+<div class="mast mast--small">
+  <div class="l-container">
+    <h1 class="mast__headline">{{ entry.title }}</h1>
+  </div>
+</div>
 
-  {% include '_components/_mainContent' with {
-    'matrix': entry.mainContent
-  } %}
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
 
-  {% paginate craft.entries.section('posts').relatedTo(entry).limit(10) as pageInfo, posts %}
+        {% paginate craft.entries.section('posts').relatedTo(entry).limit(10) as pageInfo, posts %}
 
-  {% include 'posts/_collection' with {
-    'posts': posts
-  } %}
+        {% include 'posts/_collection' with {
+          'posts': posts
+        } %}
 
-  {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
-  {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
+        {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}" class="button">Previous Page</a>{% endif %}
+        {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="button">Next Page</a>{% endif %}
+      </div>
+      <div class="col-4">
+        <div class="sidebar">
+          <div class="sidebar__section">
+            <h3 class="tertiary-headline">Biography</h3>
+            <p>{{ entry.excerpt}}</p>
+
+            {% if entry.url %}
+              <p><a href="{{ entry.websiteUrl }}">Website</a></p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
