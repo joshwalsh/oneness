@@ -22,16 +22,18 @@
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
-      <div class="col-6">
-        {% include 'wisdom/_featured' with {
-          'wisdom': entry.relatedWisdom[0]
-        } %}
-      </div>
-      <div class="col-6">
-        {% include 'wisdom/_featured' with {
-          'wisdom': entry.relatedWisdom[1]
-        } %}
-      </div>
+      {% for wisdomItem in entry.relatedWisdom %}
+        <div class="col-6">
+          {% include 'wisdom/_featured' with {
+            'wisdom': wisdomItem
+          } %}
+        </div>
+
+        {% if loop.index0 % 2 == 1 and loop.last == false %}
+          </div>
+          <div class="row">
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>
