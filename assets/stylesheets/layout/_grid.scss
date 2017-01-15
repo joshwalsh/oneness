@@ -1,57 +1,69 @@
-// GRID
-// --------------------------------------------
+// Grid styles
 
-// Construct the grid
+$cols: 12;
+$base-width: 960;
+$gutter: 30;
+$context: ($base-width - $gutter);
+
+$col-width: percentage(($base-width / $cols) / $context);
+$gutter-width: percentage($gutter / $context);
+
+@function grid-width($cols) {
+  @return $col-width * $cols - $gutter-width;
+}
+
+@mixin column($num) {
+  @media screen and (min-width: 700px), print {
+    .col-#{$num} {
+      width: grid-width($num);
+      margin-left: $gutter-width;
+      float: left;
+
+      &.col-centered {
+        margin: 0 auto;
+        float: none;
+
+        &:first-child {
+          margin-left: auto;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      .row--alt & {
+        margin-right: $gutter-width;
+        margin-left: 0;
+        float: right;
+
+        &:first-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin column-offset($num) {
+  .offset-#{$num} {
+    @media screen and (min-width: 700px), print {
+      margin-right: grid-width($num) + $gutter-width;
+    }
+  }
+
+  .offset-alt-#{$num} {
+    @media screen and (min-width: 700px), print {
+      margin-left: grid-width($num) + $gutter-width;
+    }
+  }
+}
 
 .row {
   @include clearfix;
 }
 
-%col-base {
-  @include respond-to(em(700px)) {
-    float: left;
-    margin-left: flex-gutter();
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &.col-centered {
-      float: none;
-      margin: 0 auto;
-
-      &:first-child {
-        margin-left: auto;
-      }
-    }
-  }
-}
-
-@for $i from 1 through $fg-max-columns {
-  .col-#{$i} {
-    @include respond-to(em(700px)) {
-      @extend %col-base;
-      width: flex-grid($i);
-    }
-  }
-}
-
-@function push($amount, $firstChild) {
-  $ng: 2;
-  @if $firstChild { $ng: 1 }
-  @return flex-grid($amount) + ($ng * flex-gutter());
-}
-
-@for $i from 1 through $fg-max-columns {
-  .push-#{$i} {
-    @include respond-to(em(700px)) {
-      margin-left: push($i, false);
-    }
-
-    &:first-child {
-      @include respond-to(em(700px)) {
-        margin-left: push($i, true);
-      }
-    }
-  }
+@for $i from 1 to $cols + 1 {
+  @include column($i);
+  @include column-offset($i);
 }
