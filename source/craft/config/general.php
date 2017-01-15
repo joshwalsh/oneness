@@ -8,7 +8,6 @@
  */
 
 return array(
-  'devMode' => true,
   'omitScriptNameInUrls' => true,
   'cpTrigger' => 'onenessadmin',
   'resourceTrigger' => 'assets'

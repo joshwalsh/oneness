@@ -9,8 +9,13 @@
   <div class="l-container">
     <div class="row">
       <div class="col-8">
+        {% set recent_posts = craft.entries.section('posts') %}
+        {% if recent_posts | length == 0 %}
+          <p><em>Nothing has been written yet.</em></p>
+        {% endif %}
+
         {% include 'posts/_collection' with {
-          'posts': craft.entries.section('posts')
+          'posts': recent_posts
         } %}
       </div>
       <div class="col-4">

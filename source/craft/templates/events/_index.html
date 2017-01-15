@@ -10,7 +10,12 @@
   <div class="l-container">
     <div class="row">
       <div class="col-8">
-        {% for event in craft.entries.section('events').order('dateTime') %}
+        {% set upcoming = craft.entries.section('events').order('dateTime') %}
+        {% if upcoming | length == 0 %}
+          <p><em>No events are currently scheduled.</em></p>
+        {% endif %}
+
+        {% for event in upcoming %}
           <div class="event">
             <div class="cal-thumb">
               <div class="cal-thumb__month">{{ event.dateTime | date("M") }}</div>
