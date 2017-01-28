@@ -1,0 +1,7 @@
+<div class="main-content">
+{% for block in matrix %}
+
+{% include "_components/directory/" ~ block.type %}
+
+{% endfor %}
+</div>

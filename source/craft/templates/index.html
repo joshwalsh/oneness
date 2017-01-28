@@ -6,6 +6,14 @@
   } %}
 
   <div class="l-container l-content-section">
+    <div class="row">
+      <div class="col-8 col-centered">
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
+      </div>
+    </div>
+
     {% include '_components/_twoColumnSummary' with {
       'summary': entry.twoColumnSummarySection.first
     } %}

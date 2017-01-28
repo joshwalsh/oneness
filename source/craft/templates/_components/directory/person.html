@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-4">
+    {% set image = block.photograph.first %}
+    {% if image %}
+      <img src="{{ image.url }}" alt="{{ image.title }}" />
+    {% endif %}
+  </div>
+  <div class="col-8">
+    <h3 class="tertiary-headline"><strong>{{ block.personsName }}</strong> - <em>{{ block.personsTitle }}</em></h3>
+    {{ block.description }}
+  </div>
+</div>

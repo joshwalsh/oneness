@@ -15,6 +15,12 @@
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
+
+        {% if entry.type == 'personDirectory' %}
+          {% include '_components/_directory' with {
+            'matrix': entry.directory
+          } %}
+        {% endif %}
       </div>
 
       <div class="col-4">
