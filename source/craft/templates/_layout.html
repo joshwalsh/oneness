@@ -13,6 +13,9 @@
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet" type="text/css">
 </head>
 <body>
+  {% if entry.premiumContent == true %}
+    {% requireLogin %}
+  {% endif %}
 
   <header role="banner">
     <div class="header l-container">
