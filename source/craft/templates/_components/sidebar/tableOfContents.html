@@ -6,7 +6,11 @@
 
     <ul class="list-plain">
       {% for page in subpages %}
-        <li>{{page.link}}</li>
+        {% if page.id == entry.id %}
+          <li><strong>{{page.title}}</strong></li>
+        {% else %}
+          <li>{{page.link}}</li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>
