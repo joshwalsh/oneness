@@ -57,7 +57,8 @@ gulp.task('js', function () {
 
   var lib = [
     './assets/javascripts/baseline-modernizr.js',
-    './node_modules/jquery/dist/jquery.js'
+    './node_modules/jquery/dist/jquery.js',
+    './assets/javascripts/featherlight.js'
   ];
 
   return gulp.src(modules)

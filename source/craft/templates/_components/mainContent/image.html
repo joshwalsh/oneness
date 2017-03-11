@@ -1,2 +1,18 @@
-{% set image = block.image.first %}
-<img src="{{ image.url }}" alt="{{ image.title }}" />
+{% set images = block.image %}
+
+{% if images | length > 1 %}
+
+  <div class="tile-container tile-container--three">
+    {% for image in images %}
+      <div class="tile__item">
+        <img src="{{ image.url }}" data-featherlight="{{ image.url }}" alt="{{ image.title }}" />
+      </div>
+    {% endfor %}
+  </div>
+
+{% else %}
+
+  {% set image = images.first %}
+  <img src="{{ image.url }}" alt="{{ image.title }}" />
+
+{% endif %}
