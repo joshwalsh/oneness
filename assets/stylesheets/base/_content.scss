@@ -23,14 +23,20 @@
 .secondary-headline {
   @extend %headline;
   font-size: em(32px);
-  padding-top: em(32px);
+
+  * + & {
+    padding-top: em(32px);
+  }
 }
 
 .tertiary-headline {
   @extend %headline;
   font-size: em(18px);
   line-height: 1.4em;
-  padding-top: em(18px);
+
+  * + & {
+    padding-top: em(18px);
+  }
 }
 
 .dev {
