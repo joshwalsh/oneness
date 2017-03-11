@@ -1,0 +1,21 @@
+{% import "_includes/forms" as forms %}
+
+{% set transformType = settings.transformType %}
+
+<div id="Info">
+  <div class="helper-tool-target">
+    <img class="helper-tool-img" src="">
+    <img class="reticle" src="{{ resourceUrl('focuspoint/images/focuspoint-target.png') }}">
+    <img class="target-overlay {{ transformType }}" src="">
+  </div>
+</div>
+<div class="spinner-wraper"><div class="spinner hidden"></div></div>
+
+{% includejs %}
+  new Craft.FocuspointInput(
+    "{{ id|namespaceInputId|e('js') }}",
+    "{{ name|namespaceInputName|e('js') }}",
+    "{{ fieldId|e('js') }}",
+    "{{ elementId|e('js') }}"
+  );
+{% endincludejs %}

@@ -2,11 +2,17 @@
 
 {% block content %}
 
-<div class="mast mast--small">
-  <div class="l-container">
-    <h1 class="mast__headline">{{ entry.title }}</h1>
+{% if entry.mast.first %}
+  {% include '_components/_mast' with {
+    'mast': entry.mast.first
+  } %}
+{% else %}
+  <div class="mast mast--small">
+    <div class="l-container">
+      <h1 class="mast__headline">{{ entry.title }}</h1>
+    </div>
   </div>
-</div>
+{% endif %}
 
 <div class="l-content-section">
   <div class="l-container">
