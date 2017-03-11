@@ -4,7 +4,7 @@
   <div class="sidebar__section">
     {% set subpages = craft.entries.descendantOf(tocParent) %}
 
-    <ul class="list-plain">
+    <ul class="list-links">
       {% for page in subpages %}
         {% if page.id == entry.id %}
           <li><strong>{{page.title}}</strong></li>

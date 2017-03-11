@@ -1,1 +1,7 @@
-<p class="quickthought"><a href="{{ quickthought.url }}">{{ quickthought.quickThoughtTranscription }}</a></p>
+{% if showMeme %}
+  <a href="{{ quickthought.url }}">
+    <img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription }}" />
+  </a>
+{% else %}
+  <p class="quickthought"><a href="{{ quickthought.url }}">{{ quickthought.quickThoughtTranscription }}</a></p>
+{% endif %}

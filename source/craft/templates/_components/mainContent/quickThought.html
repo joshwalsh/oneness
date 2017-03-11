@@ -1,0 +1,18 @@
+<div class="{% if block.showMemeImage == false %}l-divider l-divider--padded green-bg{% endif %}">
+  {% if block.selectQuickThoughtAtRandom %}
+
+    {% include 'quickthoughts/_partial' with {
+      'showMeme': block.showMemeImage,
+      'quickthought': craft.entries.section('quickthoughts').order('RAND()').first
+    } %}
+
+  {% else %}
+
+    {% include 'quickthoughts/_partial' with {
+      'showMeme': block.showMemeImage,
+      'quickthought': block.relatedQuickThought.first
+    } %}
+
+  {% endif %}
+
+</div>

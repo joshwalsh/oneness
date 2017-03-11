@@ -23,10 +23,22 @@
         {% endif %}
       </div>
       <div class="col-4">
+        <div class="sidebar">
+          <div class="sidebar__section">
+            <h3 class="tertiary-headline">Table of Contents</h3>
+
+            {% set subpages = craft.entries.descendantOf(entry) %}
+
+            <ul class="list-links">
+              {% for page in subpages %}
+                <li>{{page.link}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
         {% include '_components/_sidebar' with {
-          'wisdoms': craft.entries.section('wisdom').relatedTo(entry),
-          'events': craft.entries.section('events').relatedTo(entry),
-          'topics': craft.entries.section('topics').relatedTo(entry)
+          'matrix': entry.sidebar
         } %}
       </div>
     </div>

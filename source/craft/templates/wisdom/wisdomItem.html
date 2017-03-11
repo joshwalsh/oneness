@@ -30,6 +30,10 @@
             {% endif %}
           </div>
         </div>
+
+        {% include '_components/_sidebar' with {
+          'matrix': entry.sidebar
+        } %}
       </div>
     </div>
   </div>

@@ -1,0 +1,18 @@
+<div class="sidebar__section {% if block.showMemeImage %}sidebar__section--plain{% endif %}">
+  {% if block.selectQuickThoughtAtRandom %}
+
+    {% include 'quickthoughts/_partial' with {
+      'showMeme': block.showMemeImage,
+      'quickthought': craft.entries.section('quickthoughts').order('RAND()').first
+    } %}
+
+  {% else %}
+
+    {% include 'quickthoughts/_partial' with {
+      'showMeme': block.showMemeImage,
+      'quickthought': block.relatedQuickThought.first
+    } %}
+
+  {% endif %}
+
+</div>

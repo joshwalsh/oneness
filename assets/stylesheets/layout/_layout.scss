@@ -43,6 +43,10 @@
 
 .l-divider {
   padding: em(25px) 0;
+
+  &--padded {
+    padding: em(25px);
+  }
 }
 
 // Layout helpers

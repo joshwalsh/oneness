@@ -1,2 +1,4 @@
-{% set image = block.image.first %}
-<img src="{{ image.url }}" data-featherlight="{{ image.url }}" alt="{{ image.title }}" />
+<div class="sidebar__section sidebar__section--plain">
+  {% set image = block.image.first %}
+  <img src="{{ image.url }}" data-featherlight="{{ image.url }}" alt="{{ image.title }}" />
+</div>
