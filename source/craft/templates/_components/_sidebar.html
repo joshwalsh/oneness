@@ -1,27 +1,9 @@
 <div class="sidebar">
-  {% if wisdoms | length %}
-    <div class="sidebar__section">
-      {% include 'wisdom/_collection' with {
-        'wisdoms': wisdoms
-      } %}
-    </div>
-  {% endif %}
+  <div class="main-content">
+    {% for block in matrix %}
 
-  {% if events | length %}
-    <div class="sidebar__section">
-      {% include 'events/_collection' with {
-        'events': events
-      } %}
-    </div>
-  {% endif %}
+    {% include "_components/sidebar/" ~ block.type %}
 
-  {% if topics | length %}
-    <div class="sidebar__section">
-      <h3 class="tertiary-headline">Topics</h3>
-
-      {% include 'topics/_collection' with {
-        'topics': topics
-      } %}
-    </div>
-  {% endif %}
+    {% endfor %}
+  </div>
 </div>

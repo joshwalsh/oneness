@@ -1,6 +1,6 @@
 {% if mast %}
 {% set mastPhoto = mast.background.first %}
-<div class="mast {% if mast.smallVariation %} mast--small {% endif %}" {% if mast.background.first %} style="background-image: url({{ mastPhoto.getUrl('mastPhoto') }}); background-position: {{ mastPhoto.focusPoint.background }};"{% endif %}>
+<div class="mast {% if mast.smallVariation %} mast--small {% endif %}" {% if mast.background.first %} style="background-image: url({{ mastPhoto.getUrl() }}); background-position: {{ mastPhoto.focusPoint.background }};"{% endif %}>
   <div class="l-container">
     <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
     <h1 class="mast__headline">{{ mast.headline }}</h1>

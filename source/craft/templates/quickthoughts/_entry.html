@@ -3,19 +3,20 @@
 {% block content %}
 
 <div class="l-container">
-  <div class="quickthought quickthought--large">
-    {{ entry.briefDescription }}
+  <div class="row">
+    <div class="col-8 col-centered">
+      {% set quickthoughtImage = entry.quickthoughtImage.first %}
+      {% if quickthoughtImage %}
+        <img src="{{ quickthoughtImage.url }}" alt="{{ quickthoughtImage.quickThoughtTranscription }}" />
+      {% endif %}
+
+      <div class="quickthought quickthought--large">
+        {{ entry.quickThoughtTranscription }}
+      </div>
+
+      <p class="dev">Insert buttons to quick share this on Facebook or Twitter.</p>
+    </div>
   </div>
-
-  <p class="dev">Insert buttons to quick share this on Facebook or Twitter.</p>
-
-  <h2>Related:</h2>
-
-  {% include '_components/_related' with {
-    'events': craft.entries.section('events').relatedTo(entry),
-    'topics': craft.entries.section('topics').relatedTo(entry),
-    'wisdoms': craft.entries.section('wisdom').relatedTo(entry)
-  } %}
 </div>
 
 {% endblock %}

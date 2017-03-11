@@ -9,7 +9,14 @@ $brown: #bdb69c;
 $green: #80ceb9;
 $blue: #41aac4;
 
-.green-bg { color: #fff; background-color: $green; }
+.green-bg {
+  color: #fff;
+  background-color: $green;
+
+  a, a:hover, a:visited, a:active {
+    color: #fff;
+  }
+}
 
 // Default colors
 

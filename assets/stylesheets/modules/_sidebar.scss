@@ -1,6 +1,4 @@
 .sidebar {
-  background: #E4F6FA;
-  border-radius: 4px;
   padding: 0;
   margin: 0;
 
@@ -15,12 +13,14 @@
   }
 
   &__section {
+    background: #E4F6FA;
     padding-top: em(20px);
     padding-bottom: em(20px);
+    margin-bottom: em(20px);
   }
 
-  .sidebar__section + .sidebar__section {
-    border-top: 1px solid $blue;
+  &__section--plain {
+    background: transparent;
   }
 
   p {

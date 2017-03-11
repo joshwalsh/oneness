@@ -6,4 +6,12 @@
     margin: 0;
     padding: 0;
   }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      border-bottom: 1px dashed rgba(255,255,255,0.7);
+    }
+  }
 }

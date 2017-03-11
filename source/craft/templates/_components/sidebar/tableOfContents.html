@@ -1,0 +1,13 @@
+{% set tocParent = block.parentPage.first %}
+
+{% if tocParent.hasDescendants() %}
+  <div class="sidebar__section">
+    {% set subpages = craft.entries.descendantOf(tocParent) %}
+
+    <ul class="list-plain">
+      {% for page in subpages %}
+        <li>{{page.link}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

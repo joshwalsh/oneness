@@ -30,27 +30,9 @@
       </div>
 
       <div class="col-4">
-        <div class="sidebar">
-          {% set parent = entry.getParent() %}
-
-          {% if parent %}
-            <div class="sidebar__section">
-              <p><strong>{{parent.link}}</strong></p>
-            </div>
-          {% endif %}
-
-          {% if entry.hasDescendants() %}
-            <div class="sidebar__section">
-              {% set subpages = craft.entries.descendantOf(entry) %}
-
-              <ul class="list-plain">
-                {% for page in subpages %}
-                  <li>{{page.link}}</li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
-        </div>
+        {% include '_components/_sidebar' with {
+          'matrix': entry.sidebar
+        } %}
       </div>
     </div>
   </div>
