@@ -15,7 +15,11 @@
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-6 col-centered">
         <form method="post" accept-charset="UTF-8" class="form-vertical">
           {{ getCsrfInput() }}
           <input type="hidden" name="action" value="users/saveUser">
@@ -34,7 +38,7 @@
           {% from _self import errorList %}
 
           <label for="username">Username</label>
-          <input id="username" type="text" name="username"
+          <input id="username" type="text" name="username" class="full-width"
               {%- if account is defined %} value="{{ account.username }}"{% endif -%}>
 
           {% if account is defined %}
@@ -42,7 +46,7 @@
           {% endif %}
 
           <label for="email">Email</label>
-          <input id="email" type="text" name="email"
+          <input id="email" type="text" name="email" class="full-width"
               {%- if account is defined %} value="{{ account.email }}"{% endif %}>
 
           {% if account is defined %}
@@ -50,7 +54,7 @@
           {% endif %}
 
           <label for="password">Password</label>
-          <input id="password" type="password" name="password">
+          <input id="password" type="password" name="password" class="full-width">
 
           {% if account is defined %}
               {{ errorList(account.getErrors('password')) }}
@@ -58,6 +62,8 @@
 
           <input type="submit" value="Join" class="button">
         </form>
+
+        <p>Already a member?  <a href="/login">Login</a></p>
       </div>
     </div>
   </div>

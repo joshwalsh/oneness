@@ -37,6 +37,11 @@
   * + & {
     padding-top: em(18px);
   }
+
+  & + p {
+    padding-top: 0;
+    margin-top: 0;
+  }
 }
 
 .dev {

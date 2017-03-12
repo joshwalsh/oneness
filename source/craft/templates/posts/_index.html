@@ -8,7 +8,7 @@
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-8 col-centered">
         {% set recent_posts = craft.entries.section('posts') %}
         {% if recent_posts | length == 0 %}
           <p><em>Nothing has been written yet.</em></p>
@@ -16,13 +16,6 @@
 
         {% include 'posts/_collection' with {
           'posts': recent_posts
-        } %}
-      </div>
-      <div class="col-4">
-        {% include '_components/_sidebar' with {
-          'wisdoms': craft.entries.section('wisdom').relatedTo(entry),
-          'events': craft.entries.section('events').relatedTo(entry),
-          'topics': craft.entries.section('topics').relatedTo(entry)
         } %}
       </div>
     </div>

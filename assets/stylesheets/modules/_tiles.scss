@@ -25,6 +25,23 @@
     }
   }
 
+  &-container--divided {
+    .tile__item {
+      border-top: 1px solid #999;
+      padding-top: 2em;
+
+      &:first-child, &:nth-child(2) {
+        border-top: 0;
+      }
+
+      @include respond-to(em(500px), max-width) {
+        &:nth-child(2) {
+          border-top: 1px solid #999;
+        }
+      }
+    }
+  }
+
   &-container--three {
     .tile__item {
       @include respond-to(em(700px)) {

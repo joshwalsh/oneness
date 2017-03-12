@@ -5,7 +5,7 @@
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-8 col-centered">
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
@@ -13,33 +13,18 @@
         {% if entry.hasDescendants() %}
           {% set wisdomItems = craft.entries.descendantOf(entry) %}
 
-          <ol>
+          <h2 class="secondary-headline">Table of Contents</h2>
+
+          <div class="tile-container tile-container--divided">
             {% for item in wisdomItems %}
-                <li>
-                    <p><strong>{{item.link}}</strong>: {{item.briefDescription}}</p>
-                </li>
+              <div class="tile__item">
+                <h3 class="tertiary-headline">{{item.title}}</h3>
+                <p>{{item.briefDescription}}</p>
+                <p><a href="{{ item.url }}" class="button button--small">Continue&hellip;</a></p>
+              </div>
             {% endfor %}
-          </ol>
-        {% endif %}
-      </div>
-      <div class="col-4">
-        <div class="sidebar">
-          <div class="sidebar__section">
-            <h3 class="tertiary-headline">Table of Contents</h3>
-
-            {% set subpages = craft.entries.descendantOf(entry) %}
-
-            <ul class="list-links">
-              {% for page in subpages %}
-                <li>{{page.link}}</li>
-              {% endfor %}
-            </ul>
           </div>
-        </div>
-
-        {% include '_components/_sidebar' with {
-          'matrix': entry.sidebar
-        } %}
+        {% endif %}
       </div>
     </div>
   </div>

@@ -7,16 +7,18 @@
 
   <div class="l-container l-content-section">
     <div class="row">
-      <div class="col-8 col-centered">
+      <div class="col-8">
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
       </div>
-    </div>
 
-    {% include '_components/_twoColumnSummary' with {
-      'summary': entry.twoColumnSummarySection.first
-    } %}
+      <div class="col-4">
+        {% include '_components/_sidebar' with {
+          'matrix': entry.sidebar
+        } %}
+      </div>
+    </div>
   </div>
 
 <div class="l-divider green-bg">

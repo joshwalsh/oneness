@@ -11,7 +11,7 @@
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
-      <div class="col-8 col-centered">
+      <div class="col-6 col-centered">
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
@@ -21,11 +21,11 @@
           <input type="hidden" name="action" value="users/login">
 
           <label for="loginName">Username or email</label>
-          <input id="loginName" type="text" name="loginName"
+          <input id="loginName" type="text" name="loginName" class="full-width"
               value="{{ craft.session.rememberedUsername }}">
 
           <label for="password">Password</label>
-          <input id="password" type="password" name="password">
+          <input id="password" type="password" name="password" class="full-width">
 
           <label>
               <input type="checkbox" name="rememberMe" value="1">

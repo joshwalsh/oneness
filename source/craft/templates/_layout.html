@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>Discover Oneness Foundation</title>
+  <title>{% if entry.titleTag %}{{ entry.titleTag}}{% else %}Discover Oneness Foundation{% endif %}</title>
   <link rel="home" href="{{ siteUrl }}">
   <meta name="robots" content="index,follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,10 @@
   {% endif %}
   <link rel="stylesheet" href="/assets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet" type="text/css">
+  
+  {% if entry.metaDescription %}
+    <meta name="description" content="{{ entry.metaDescription }}">
+  {% endif %}
 </head>
 <body>
   {% if entry.premiumContent == true %}
@@ -23,7 +27,11 @@
         <a class="logo" href="/">Discover Oneness Foundation</a>
         <ul class="nav">
           {% for navLink in craft.entries.section('mainNavigation') %}
-            <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
+            {% if navLink.websiteUrl %}
+              <li><a href="{{navLink.websiteUrl}}" target="_blank">{{navLink.title}}</a></li>
+            {% else %}
+              <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
@@ -38,8 +46,12 @@
     <div class="l-section">
       <div class="l-container">
         <ul class="list-horizontal">
-          {% for navLink in craft.entries.section('mainNavigation') %}
-            <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
+          {% for navLink in craft.entries.section('secondaryNavigation') %}
+            {% if navLink.websiteUrl %}
+              <li><a href="{{navLink.websiteUrl}}" target="_blank">{{navLink.title}}</a></li>
+            {% else %}
+              <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
+            {% endif %}
           {% endfor %}
         </ul>
 

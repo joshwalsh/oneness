@@ -4,6 +4,10 @@
   <div class="sidebar__section">
     {% set subpages = craft.entries.descendantOf(tocParent) %}
 
+    {% if block.tocTitle %}
+      <h3 class="tertiary-headline">{{ block.tocTitle }}</h3>
+    {% endif %}
+
     <ul class="list-links">
       {% for page in subpages %}
         {% if page.id == entry.id %}

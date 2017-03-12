@@ -43,6 +43,18 @@
     padding: 4px 6px;
     text-transform: uppercase;
   }
+
+  &--light {
+    color: #888;
+    border: 1px solid #888;
+    background: transparent;
+
+    &:hover, &:active {
+      color: $button-default;
+      border: 1px solid $button-default;
+      background-color: lighten($button-default, 50%);
+    }
+  }
 }
 
 // Pseudo button
