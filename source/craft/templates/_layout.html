@@ -11,7 +11,7 @@
   {% endif %}
   <link rel="stylesheet" href="/assets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet" type="text/css">
-  
+
   {% if entry.metaDescription %}
     <meta name="description" content="{{ entry.metaDescription }}">
   {% endif %}
@@ -61,8 +61,13 @@
   </footer>
 
   <script src="/assets/application.js"></script>
+  <script src="{{ resourceUrl('charge/js/stripe_v2.min.js') }}"></script>
+  <script src="{{ resourceUrl('charge/js/jquery.charge.js') }}"></script>
   <script>
-    require('main');
+      (function () {
+          Stripe.setPublishableKey('{{ craft.charge.getPublicKey() }}');
+          $(this).charge();
+      })();
   </script>
 </body>
 </html>

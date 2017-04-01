@@ -1,0 +1,100 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+{% set wisdom = entry.getParent() %}
+{% include '_components/_mast' with {
+  'mast': entry.mast.first
+} %}
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8 col-centered">
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-centered">
+        <div class="l-divider"></div>
+
+        <form id="charge-form" method="post" data-stripeKey="{{ craft.charge.publicKey }}" class="form-vertical">
+          <input type="hidden" name="action" value="charge/charge"/>
+          <input type="hidden" name="redirect" value="donate/thanks"/>
+          {% set options = {
+            allowDynamic: true,
+            'planChoiceDefault': 'annual',
+            'planChoices' : {
+                'onetime' : {
+                    'label': 'One-Time'
+                },
+                'annual' : {
+                    'label': 'Annually',
+                    'planInterval' : 'year',
+                    'planIntervalCount' : 1
+                },
+                'month' : {
+                    'label': 'Monthly',
+                    'planInterval' : 'month',
+                    'planIntervalCount' : 1
+                }
+            }
+           } %}
+          {{ craft.charge.setPaymentOptions(options) }}
+
+          <div id="payment-errors"></div>
+
+          <label for="customerEmail">Receipt Email</label>
+          <input type="text" name="customerEmail" value="{{ charge is defined ? charge.customerEmail : currentUser ? currentUser.email }}" class="full-width" id="customerEmail"/>
+          {% if charge is defined %}{% for error in charge.getErrors('customerEmail') %}{{ error }}{% endfor %}{% endif %}
+
+          <input type="hidden" name="description" value="Donation to Discover Oneness Foundation"/>
+
+          <label for="planAmount">Donation Amount</label>
+          <input type="number" name="planAmount" value="100.00" min="5" max="99999" class="full-width" id="planAmount"/>
+
+          <label for="planChoice">Please Charge my Card</label>
+          <select name="planChoice">
+            <option value="onetime">One-Time</option>
+            <option value="annual" selected="selected">Annually</option>
+            <option value="month">Monthly</option>
+          </select>
+
+
+          {% if charge is defined and charge.cardToken %}
+            {# We already have the card details #}
+            Pay with : {{ charge.cardType }} - {{ charge.cardLast4 }}
+
+            <input type="hidden" name="cardToken" value="{{ charge.cardToken }}" data-stripe="token"/>
+            <input type="hidden" name="cardLast4" value="{{ charge.cardLast4 }}"/>
+            <input type="hidden" name="cardType" value="{{ charge.cardType }}"/>
+            <input type="hidden" name="cardName" value="{{ charge.cardName }}"/>
+            <input type="hidden" name="cardExpMonth" value="{{ charge.cardExpMonth }}"/>
+            <input type="hidden" name="cardExpYear" value="{{ charge.cardExpYear }}"/>
+
+
+          {% else %}
+            <label for="cardNumber">Card Number</label>
+            <input type="text" data-stripe="number" placeholder="•••• •••• •••• ••••" id="cardNumber" class="full-width"/>
+
+            <label for="cardExpiry">Card Expiry</label>
+            <input type="text" data-stripe="exp" placeholder="mm / yy" id="cardExpiry"/>
+            <input type="hidden" name="cardExpMonth" value="" data-stripe="exp_month">
+            <input type="hidden" name="cardExpYear" value=""data-stripe="exp_year">
+
+            <label for="cardCvc">Card CVC</label>
+            <input type="text" data-stripe="cvc" placeholder="123" id="cardCvc"/>
+          {% endif %}
+
+           <input type="submit" value="Donate" class="button" />
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

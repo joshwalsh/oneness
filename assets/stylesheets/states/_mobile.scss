@@ -1,0 +1,13 @@
+.mobile-on {
+  display: none;
+  @include respond-to(em(500px), max-width) {
+    display: block;
+  }
+}
+
+.mobile-off {
+  display: block;
+  @include respond-to(em(500px), max-width) {
+    display: none;
+  }
+}
