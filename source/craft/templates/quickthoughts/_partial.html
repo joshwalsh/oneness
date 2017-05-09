@@ -1,7 +1,7 @@
 {% if showMeme %}
   <a href="{{ quickthought.url }}">
-    <img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription }}" />
+    <img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription|striptags }}" />
   </a>
 {% else %}
-  <div class="quickthought"><a href="{{ quickthought.url }}">{{ quickthought.quickThoughtTranscription }}</a></div>
+  <div class="quickthought"><a href="{{ quickthought.url }}">{{ quickthought.quickThoughtTranscription|striptags }}</a></div>
 {% endif %}
