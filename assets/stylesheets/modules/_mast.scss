@@ -1,6 +1,6 @@
 .mast {
   width: 100%;
-  background-color: $brown;
+  background-color: $blue;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -29,6 +29,7 @@
     font-size: em(65px);
     font-family: $headline-font;
     font-weight: 300;
+    text-shadow: 0px 2px 1px #222;
   }
 
   &--small {
