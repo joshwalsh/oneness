@@ -1,0 +1,6 @@
+{% set featuredEntry = block.featuredEntry.first %}
+
+{% include '_components/_featureContent' with {
+  'entry': featuredEntry,
+  'matrix': featuredEntry.featuredContent
+} %}
