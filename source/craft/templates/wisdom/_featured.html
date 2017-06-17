@@ -1,5 +1,10 @@
 <div class="wisdom">
   <h2 class="secondary-headline">{{ wisdom.title }}</h2>
-  <p>{{ wisdom.briefDescription }}</p>
+
+  {% include '_components/_featureContent' with {
+    'entry': wisdom,
+    'matrix': wisdom.featuredContent
+  } %}
+
   <a href="{{ wisdom.url }}" class="button">Continue Reading</a>
 </div>
