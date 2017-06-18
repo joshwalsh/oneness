@@ -1,9 +1,25 @@
 {% if mast %}
-{% set mastPhoto = mast.background.first %}
-<div class="mast {% if mast.smallVariation %} mast--small {% endif %}" {% if mast.background.first %} style="background-image: url({{ mastPhoto.getUrl() }}); background-position: {{ mastPhoto.focusPoint.background }};"{% endif %}>
-  <div class="l-container">
-    <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
-    <h1 class="mast__headline">{{ mast.headline }}</h1>
+  {% set mastPhoto = mast.background.first %}
+  <div class="mast {% if mast.smallVariation %} mast--small {% endif %}" {% if mast.background.first %} style="background-image: url({{ mastPhoto.getUrl() }}); background-position: {{ mastPhoto.focusPoint.background }};"{% endif %}>
+    <div class="l-container">
+      <div class="mast__intro_headline">{{ mast.introHeadline }}</div>
+      <h1 class="mast__headline">{{ mast.headline }}</h1>
+    </div>
   </div>
-</div>
+
+  {% if mast.includeMembershipPrompt %}
+  <div class="prompt">
+    <div class="l-container">
+      <div class="row">
+        {% if currentUser %}
+          <div class="col-8"><strong>Welcome back, {{ currentUser.friendlyName }}.</strong> Visit the members home page to access all of your content.</div>
+          <div class="col-4"><a href="{{ '{entry:784:url}' | parseRefs }}" class="button button--full">Members Home</a></div>
+        {% else %}
+          <div class="col-8">Become a FREE member of the Oneness Foundation today to have full access to all of our insightful content.</div>
+          <div class="col-4"><a href="{{ '{entry:381:url}' | parseRefs }}" class="button button--full">Join</a></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
 {% endif %}

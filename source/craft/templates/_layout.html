@@ -33,6 +33,11 @@
               <li><a href="{{navLink.relatedPage.first.url}}">{{navLink.title}}</a></li>
             {% endif %}
           {% endfor %}
+          {% if currentUser %}
+            <li><a href="{{ logoutUrl }}" class="button">Logout</a></li>
+          {% else %}
+            <li><a href="{{ '{entry:379:url}' | parseRefs }}" class="button">Login</a></li>
+          {% endif %}
         </ul>
       </div>
     </div>
