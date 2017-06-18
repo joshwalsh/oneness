@@ -4,16 +4,21 @@
 
 <div class="mast mast--small">
   <div class="l-container">
-    <h1 class="mast__headline">Welcome, {{ currentUser.friendlyName }}</h1>
+    <h1 class="mast__headline">Welcome back, {{ currentUser.friendlyName }}</h1>
   </div>
 </div>
 
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
-      <div class="col-8 col-centered">
+      <div class="col-8">
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
+        } %}
+      </div>
+      <div class="col-4">
+        {% include '_components/_sidebar' with {
+          'matrix': entry.sidebar
         } %}
       </div>
     </div>

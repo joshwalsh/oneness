@@ -1,0 +1,13 @@
+<div class="sidebar__section">
+  {% if block.textTitle %}
+    <h3 class="tertiary-headline">{{ block.textTitle }}</h3>
+  {% endif %}
+
+  {{ block.body }}
+
+  {% if block.buttonDestination.first %}
+  <p>
+    <a href="{{block.buttonDestination.first.url}}" class="button">{{ block.buttonText }}</a>
+  </p>
+  {% endif %}
+</div>

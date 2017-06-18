@@ -15,6 +15,27 @@
 
           <h2 class="secondary-headline">Table of Contents</h2>
 
+        </div>
+      </div>
+    </div>
+
+    {% if currentUser == null %}
+      <div class="l-divider green-bg">
+        <div class="l-container">
+          <div class="row">
+            <div class="col-8 col-centered">
+              <p><strong>Become a Free Member.</strong>  All of the content below is available to you completely for free.  Some of it requires for you to join the Foundation as a free member.</p>
+              <p><a href="{{ '{entry:381:url}' | parseRefs }}" class="button">Join Today</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="l-container">
+      <div class="row">
+        <div class="col-8 col-centered">
+
           <div class="tile-container tile-container--divided">
             {% for item in wisdomItems %}
               <div class="tile__item">

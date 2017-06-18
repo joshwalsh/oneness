@@ -48,6 +48,11 @@
   &--padded {
     padding: em(25px);
   }
+
+  .button {
+    background: transparent;
+    border: 1px solid #fff;
+  }
 }
 
 // Layout helpers
