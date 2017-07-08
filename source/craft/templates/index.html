@@ -5,7 +5,7 @@
     'mast': entry.mast.first
   } %}
 
-  <div class="l-container l-content-section">
+  <div class="l-container l-content-section l-divided">
     <div class="row">
       <div class="col-8">
         {% include '_components/_mainContent' with {
@@ -21,31 +21,23 @@
     </div>
   </div>
 
-<div class="l-divider green-bg">
-  <div class="l-container">
-    {% include 'quickthoughts/_partial' with {
-      'quickthought': craft.entries.section('quickthoughts').order('RAND()').first
-    } %}
-  </div>
-</div>
-
-<div class="l-content-section">
-  <div class="l-container">
-    <div class="row">
-      {% for wisdomItem in entry.relatedWisdom %}
-        <div class="col-6">
-          {% include 'wisdom/_featured' with {
-            'wisdom': wisdomItem
-          } %}
-        </div>
-
-        {% if loop.index0 % 2 == 1 and loop.last == false %}
+  <div class="l-content-section">
+    <div class="l-container">
+      <div class="row">
+        {% for wisdomItem in entry.relatedWisdom %}
+          <div class="col-6">
+            {% include 'wisdom/_featured' with {
+              'wisdom': wisdomItem
+            } %}
           </div>
-          <div class="row">
-        {% endif %}
-      {% endfor %}
+
+          {% if loop.index0 % 2 == 1 and loop.last == false %}
+            </div>
+            <div class="row">
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
 
 {% endblock %}

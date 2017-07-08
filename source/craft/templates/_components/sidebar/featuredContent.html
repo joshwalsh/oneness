@@ -1,0 +1,16 @@
+{% set featuredEntry = block.featuredEntry.first %}
+
+<div class="sidebar__section">
+  {% if block.featuredTitle %}
+    <h3 class="tertiary-headline">{{ block.featuredTitle }}</h3>
+  {% endif %}
+
+  {% include '_components/_featureContent' with {
+    'entry': featuredEntry,
+    'matrix': featuredEntry.featuredContent
+  } %}
+
+  <p>
+    <a href="{{featuredEntry.url}}" class="button">Learn More</a>
+  </p>
+</div>

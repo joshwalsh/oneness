@@ -23,6 +23,12 @@
 
 .l-content-section {
   padding: em(50px) 0;
+
+  &.l-divided {
+    padding-bottom: em(60px);
+    border-bottom: 1px solid #ccc;
+    margin-bottom: em(60px);
+  }
 }
 
 .l-header {

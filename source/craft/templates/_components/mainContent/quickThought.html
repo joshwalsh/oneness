@@ -3,14 +3,16 @@
 
     {% include 'quickthoughts/_partial' with {
       'showMeme': block.showMemeImage,
-      'quickthought': craft.entries.section('quickthoughts').order('RAND()').first
+      'quickthought': craft.entries.section('quickthoughts').order('RAND()').first,
+      'showCaption': true
     } %}
 
   {% else %}
 
     {% include 'quickthoughts/_partial' with {
       'showMeme': block.showMemeImage,
-      'quickthought': block.relatedQuickThought.first
+      'quickthought': block.relatedQuickThought.first,
+      'showCaption': true
     } %}
 
   {% endif %}

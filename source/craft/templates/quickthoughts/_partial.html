@@ -1,7 +1,14 @@
 {% if showMeme %}
-  <a href="{{ quickthought.url }}">
-    <img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription|striptags }}" />
-  </a>
+  {% if showCaption %}
+    <div class="quickThoughtCaption">
+      <a href="{{ quickthought.url }}"><img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription|striptags }}" /></a>
+      <p>{{ quickthought.quickThoughtTranscription|striptags }}</p>
+    </div>
+  {% else %}
+    <a href="{{ quickthought.url }}">
+      <img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription|striptags }}" />
+    </a>
+  {% endif %}
 {% else %}
   <div class="quickthought"><a href="{{ quickthought.url }}">{{ quickthought.quickThoughtTranscription|striptags }}</a></div>
 {% endif %}

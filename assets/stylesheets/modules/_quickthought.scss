@@ -16,3 +16,13 @@
     }
   }
 }
+
+.quickThoughtCaption {
+  border: 1px solid #ccc;
+  padding: em(12px);
+
+  p {
+    font-size: em(11px);
+    font-style: italic;
+  }
+}
