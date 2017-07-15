@@ -1,0 +1,11 @@
+.sticky-promo {
+  background: #ffe;
+  padding: em(15px) 0;
+  border-bottom: 3px solid #5A49D6;
+  text-align: center;
+
+  &__title {
+    @extend %headline;
+    font-size: em(28px);
+  }
+}

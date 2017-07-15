@@ -21,6 +21,15 @@
     {% requireLogin %}
   {% endif %}
 
+  {% if streaming.broadcastingLive and entry.id != 1147 %}
+    <div class="sticky-promo">
+      <div class="l-container">
+        <div class="sticky-promo__title">LIVE - Join us in the TV Studio right now...</div>
+        <p><a href="/live" class="button">Watch Now</a></p>
+      </div>
+    </div>
+  {% endif %}
+
   <header role="banner">
     <div class="header l-container">
       <div class="header-container">
