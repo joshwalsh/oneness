@@ -13,11 +13,17 @@
     <div class="row">
       <div class="col-8 col-centered">
         <h2 class="secondary-headline">{{ entry.title }}</h2>
+        <p><strong>{{ entry.questioner }}</strong> asks:</p>
+        {{ entry.fullQuestion }}
+
+        <hr>
+
+        <p><strong>{{ entry.relatedAuthor.first.title }}</strong> says:</p>
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
-        <hr>
-        <p>Thanks to <strong>{{ entry.questioner }}</strong> for today's question.</p>
+
+        <p><a href="/questions" class="button">Back to Questions</a></p>
       </div>
     </div>
   </div>

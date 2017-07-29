@@ -1,6 +1,8 @@
 <div class="post">
   <h2 class="secondary-headline post__title">{{ question.link }}</h2>
-  <p class="post__byline">By: {{ question.questioner }} on {{ post.postDate | date("M d, Y") }}</p>
+  <p class="post__byline">By: {{ question.questioner }} on {{ question.postDate | date("M d, Y") }}</p>
 
-  <a href="{{ post.url }}" class="button">Read the Answer</a>
+  {{ question.fullQuestion }}
+
+  <a href="{{ question.url }}" class="button">Read the Answer</a>
 </div>
