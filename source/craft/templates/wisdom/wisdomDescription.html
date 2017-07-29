@@ -5,7 +5,7 @@
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
-      <div class="col-8 col-centered">
+      <div class="col-12">
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
@@ -34,14 +34,14 @@
 
     <div class="l-container">
       <div class="row">
-        <div class="col-8 col-centered">
+        <div class="col-12">
 
           <div class="tile-container tile-container--divided">
             {% for item in wisdomItems %}
               <div class="tile__item">
                 <h3 class="tertiary-headline">{{item.title}}</h3>
                 <p>{{item.briefDescription}}</p>
-                <p><a href="{{ item.url }}" class="button button--small">Continue&hellip;</a></p>
+                <p><a href="{{ item.url }}" class="button button--small">Watch Video</a></p>
               </div>
             {% endfor %}
           </div>
