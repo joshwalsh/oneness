@@ -44,6 +44,16 @@
   }
 }
 
+.section-headline {
+  @extend %headline;
+  font-size: em(32px);
+  text-align: center;
+
+  * + & {
+    padding-top: em(32px);
+  }
+}
+
 .dev {
   background-color: #fee;
   color:#900;

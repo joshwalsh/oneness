@@ -5,19 +5,25 @@
     'mast': entry.mast.first
   } %}
 
-  <div class="l-container l-content-section l-divided">
+  <div class="l-container l-content-section l-compact">
     <div class="row">
-      <div class="col-8">
+      <div class="col-12">
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
       </div>
+    </div>
+  </div>
 
-      <div class="col-4">
-        {% include '_components/_sidebar' with {
-          'matrix': entry.sidebar
-        } %}
-      </div>
+  <div class="l-top-divider">
+    <div class="l-container">
+      <div class="row">
+          <div class="col-12">
+            {% include '_components/_inlineNavigation' with {
+              'matrix': entry.inlineNavigation
+            } %}
+          </div>
+        </div>
     </div>
   </div>
 

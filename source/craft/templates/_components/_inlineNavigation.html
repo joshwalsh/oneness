@@ -1,0 +1,6 @@
+<ul class="inline-navigation">
+    {% for block in matrix %}
+        <li><a href="{{ block.destination.first.url }}">{{ block.linkText }}</a></li>
+    {% endfor %}
+</ul>
+    

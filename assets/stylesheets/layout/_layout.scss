@@ -17,6 +17,10 @@
   position: relative;
 }
 
+.l-top-divider {
+  border-top: 1px solid #ccc;
+}
+
 .l-section {
   margin-bottom: $default-whitespace;
 }
@@ -29,10 +33,10 @@
     border-bottom: 1px solid #ccc;
     margin-bottom: em(60px);
   }
-}
 
-.l-header {
-
+  &.l-compact {
+    margin-bottom: 0;
+  }
 }
 
 .l-footer {

@@ -1,0 +1,23 @@
+.inline-navigation {
+    margin-top: 0;
+    text-align: center;
+    padding: em(28px) 0;
+    font-size: em(14px);
+
+    > li {
+        display: inline-block;
+        margin-right: $default-whitespace;
+
+        &:last-child {
+        margin-right: 0;
+        }
+
+        a {
+            color: $gray;
+
+            &:hover {
+                color: $blue;
+            }
+        }
+    }
+}
