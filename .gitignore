@@ -2,6 +2,11 @@
 craft/app
 craft/storage/runtime
 craft/storage/backups
+source/craft/app
+source/craft/storage/runtime
+source/craft/storage/backups
+source/public/assets
+source/public/uploads
 node_modules
 bower_components
 .sass-cache
