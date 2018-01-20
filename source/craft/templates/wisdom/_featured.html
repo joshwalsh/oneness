@@ -1,10 +1,44 @@
-<div class="wisdom">
-  <h2 class="secondary-headline">{{ wisdom.title }}</h2>
+<div class="wisdom {{ cycle(['wisdom--white','wisdom--blue','wisdom--white','wisdom--green'],loop.index) }}">
+  <div class="l-container">
+    {% if wisdom.excludeThumbnail %}
+      
+      <div class="row">
+        <div class="col-12">
+            <h2 class="secondary-headline">{{ wisdom.title }}</h2>
+            
+            {% include '_components/_featureContent' with {
+              'entry': wisdom,
+              'excludeThumbnail': false,
+              'matrix': wisdom.featuredContent
+            } %}
 
-  {% include '_components/_featureContent' with {
-    'entry': wisdom,
-    'matrix': wisdom.featuredContent
-  } %}
+            <a href="{{ wisdom.url }}" class="button">Begin {{ wisdom.sectionTypeLabel }} {{ sectionNumber}}</a> or Browse the <a href="{{ wisdom.url }}">Table of Contents</a>.
+        </div>
+      </div>
+  
+    {% else %}
 
-  <a href="{{ wisdom.url }}" class="button">Watch Video</a>
+      <div class="row">
+        <div class="col-6">
+          
+            {% include '_components/_featureThumbnail' with {
+              'entry': wisdom,
+              'thumbnail': wisdom.featuredContent.first
+            } %}
+          
+        </div>
+        <div class="col-6">
+          <h2 class="secondary-headline">{{ wisdom.title }}</h2>
+          {% include '_components/_featureContent' with {
+            'entry': wisdom,
+            'excludeThumbnail': true,
+            'matrix': wisdom.featuredContent
+          } %}
+
+          <a href="{{ wisdom.children.first.url }}" class="button">Begin {{ wisdom.sectionTypeLabel }} {{ sectionNumber}}</a> <span class="fine-text">or Browse the <a href="{{ wisdom.url }}">Table of Contents</a>.</span>
+        </div>
+      </div>
+      
+    {% endif %}
+  </div>
 </div>

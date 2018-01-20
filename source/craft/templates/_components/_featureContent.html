@@ -1,5 +1,11 @@
-{% for block in matrix %}
+{% if excludeThumbnail %}
+    {% set matrix = matrix | slice(1,length) %}
+{% endif %}
 
-{% include "_components/featureContent/" ~ block.type %}
+<div class="feature-content">
+    {% for block in matrix %}
 
-{% endfor %}
+    {% include "_components/featureContent/" ~ block.type %}
+    
+    {% endfor %}
+</div>

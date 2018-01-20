@@ -1,3 +1,48 @@
 .wisdom {
-    margin-bottom: em(80px);
+    padding: em(100px) 0;
+
+    &--blue {
+        background: $blue;
+        color: white;
+
+        .button {
+            background-color: white;
+            color: $blue;
+        }
+
+        a {
+            color: white;
+        }
+    }
+
+    &--green {
+        background: $green;
+        color: white;
+        
+        .button {
+            background-color: white;
+            color: $green;
+        }
+
+        a {
+            color: white;
+        }
+    }
+
+    &--white {
+        background: white;
+
+        .button {
+            background-color: #222;
+            color: white;
+        }
+
+        a {
+            color: #222;
+        }
+    }
+
+    .button {
+        margin-right: em(15px);
+    }
 }
