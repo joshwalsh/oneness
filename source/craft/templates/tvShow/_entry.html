@@ -1,0 +1,52 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+
+<div class="mast mast--small">
+    <div class="l-container">
+        <div class="mast__intro_headline">{{ entry.postDate | date("M d, Y") }}</div>
+        <h1 class="mast__headline">{{ entry.title }}</h1>
+    </div>
+</div>
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="embed embed--16by9">
+        {{ entry.featuredVideo|raw }}
+    </div>
+  </div>
+</div>
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
+      </div>
+
+      <div class="col-4">
+        <div class="sidebar">
+            <div class="main-content">
+                <div class="sidebar__section">
+                    <h3 class="tertiary-headline">Recent Episodes</h3>
+
+                    <ul class="list-links">
+                        {% for show in craft.entries.section('tvShow').limit(10) %}
+                            {% if show.id == entry.id %}
+                                <li><strong>{{ show.link }}</strong></li>
+                            {% else %}
+                                <li>{{ show.link }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

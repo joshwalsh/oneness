@@ -1,0 +1,45 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+    {% include '_components/_mast' with {
+        'mast': entry.mast.first
+    } %}
+  
+  <div class="l-content-section">
+    <div class="l-container">
+      <div class="row">
+        <div class="col-12">
+          {% include '_components/_mainContent' with {
+            'matrix': entry.mainContent
+          } %}
+          </div>
+        </div>
+      </div>
+  
+      <div class="l-container">
+        <div class="row">
+          <div class="col-12">
+  
+            <div class="tile-container tile-container--divided">
+              {% for item in craft.entries.section('tvShow') %}
+                <div class="tile__item">
+                    <h2 class="secondary-headline">{{ item.title }}</h2>
+
+                    {% include '_components/_featureContent' with {
+                        'entry': item,
+                        'matrix': item.featuredContent
+                    } %}
+                    
+                    <p class="fine-text">Originally aired on {{ item.postDate | date('M d, Y') }}</p>
+
+                    <p><a href="{{ item.url }}" class="button">Watch Show</a></p>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
