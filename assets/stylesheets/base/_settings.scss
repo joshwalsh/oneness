@@ -5,9 +5,9 @@
 // ------------------
 $gray: #717D8C;
 $white: #ddd;
-$brown: #25176A;
-$green: #A5607A;
-$blue: #5A49D6;
+$brown: #bdb69c;
+$green: #80ceb9;
+$blue: #41aac4;
 
 .green-bg {
   color: #fff;
@@ -24,12 +24,12 @@ $blue: #5A49D6;
 
 // Default colors
 
-$default-text-color: #333;
+$default-text-color: #2f343a;
 $default-border-color: #ccc;
 
 // Link colors
 
-$link-color: #5A49D6;
+$link-color: $blue;
 $link-disabled: #dedede;
 
 // Button colors

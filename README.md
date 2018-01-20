@@ -1,4 +1,4 @@
-# The Gathering Place
+# Discover Oneness Foundation
 
 To set things up for the first time:
 

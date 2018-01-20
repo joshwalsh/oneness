@@ -14,3 +14,4 @@ logs
 .swp
 tmp
 backup/uploads
+.vscode
