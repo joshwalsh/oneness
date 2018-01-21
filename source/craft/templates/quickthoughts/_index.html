@@ -1,0 +1,27 @@
+{% extends "_layout" %}
+
+{% block content %}
+  {% include '_components/_mast' with {
+    'mast': entry.mast.first
+  } %}
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="tile-container">
+        {% paginate craft.entries.section('quickThoughts').limit(50) as pageInfo, pageEntries %}
+        {% for qt in pageEntries %}
+            <div class="tile__item">
+                {% include 'quickthoughts/_partial' with {
+                    'quickthought': qt,
+                    'showMeme': true
+                } %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}" class="button">Previous Page</a>{% endif %}
+    {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="button">Next Page</a>{% endif %}
+  </div>
+</div>
+
+{% endblock %}
