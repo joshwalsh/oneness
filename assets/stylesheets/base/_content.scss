@@ -19,6 +19,10 @@
   @extend %headline;
   font-size: em(44px);
 
+  @include respond-to(em(500px), max-width) {
+    font-size: em(32px);
+  }
+
   .headline-intro {
     display: block;
     font-size: em(16px, 44px);
@@ -33,6 +37,10 @@
 .secondary-headline {
   @extend %headline;
   font-size: em(32px);
+
+  @include respond-to(em(500px), max-width) {
+    font-size: em(28px);
+  }
 
   .headline-intro {
     display: block;
@@ -71,6 +79,10 @@
 
   * + & {
     padding-top: em(32px);
+  }
+
+  @include respond-to(em(500px), max-width) {
+    font-size: em(24px);
   }
 }
 

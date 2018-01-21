@@ -9,6 +9,10 @@
 
   > .l-container {
     padding: 180px 0;
+
+    @include respond-to(em(500px), max-width) {
+      padding: 90px 0;
+    }
   }
 
   &__intro_headline {
@@ -31,6 +35,10 @@
     font-family: $headline-font;
     font-weight: 300;
     text-shadow: 0px 2px 1px #222;
+
+    @include respond-to(em(500px), max-width) {
+      font-size: em(45px);
+    }
   }
 
   &--small {

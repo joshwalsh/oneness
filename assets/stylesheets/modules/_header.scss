@@ -1,6 +1,7 @@
 .header {
   background: #fff;
   padding: 0 em(10px) em(10px) 0;
+  position: relative;
 
   &-container {
     display: table;
@@ -20,6 +21,24 @@
     background-image: url(/images/oneness-logo.svg);
   }
 
+  .hamburger {
+    display: none;
+
+    @include respond-to(em(800px), max-width) {
+      display: block;
+      color: white;
+      text-transform: uppercase;
+      background: $blue;
+      text-decoration: none;
+      padding: em(8px) em(12px);
+      position: absolute;
+      right: 0;
+      top: em(32px);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
   .nav {
     margin: 0;
     padding: 0;
@@ -28,7 +47,7 @@
     vertical-align: middle;
     font-size: em(14px);
 
-    > li {
+    li {
       display: inline;
       padding: 0 em(20px);
 
@@ -39,6 +58,51 @@
 
         &.button {
           color: #fff;
+        }
+      }
+    }
+
+    @include respond-to(em(800px), max-width) {
+      display: none;
+    }
+  }
+}
+
+.header--mobile {
+  background: white;
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  padding: 0 em(10px) em(10px) 0;
+
+  .logo {
+    display: block;
+    width: 100%;
+    background-position: em(16px) 0;
+    margin-bottom: em(16px);
+  }
+
+  .hamburger {
+    right: 5%;
+  }
+  .nav {
+    display: block;
+    top: 0;
+    left: 0;
+
+    li {
+      font-size: em(16px);
+      display: block;
+      text-align: left;
+
+      a {
+        display: block;
+        padding: em(16px);
+
+        &.button {
+          text-align: left;
         }
       }
     }

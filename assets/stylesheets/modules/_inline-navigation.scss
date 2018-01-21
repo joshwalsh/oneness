@@ -5,7 +5,7 @@
     padding: em(28px) 0;
     font-size: em(14px);
 
-    > li {
+    li {
         display: inline-block;
         margin-right: $default-whitespace;
 
@@ -19,6 +19,16 @@
             &:hover {
                 color: $blue;
             }
+        }
+    }
+
+
+    @include respond-to(em(500px), max-width) {
+        li {
+            display: block;
+            margin-right: 0;
+            text-align: center;
+            padding: em(6px) 0;
         }
     }
 }

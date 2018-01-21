@@ -51,8 +51,8 @@ gulp.task('sass', function() {
 // JS
 gulp.task('js', function () {
   var modules = [
-    './source/javascripts/modules/**/*.js',
-    './source/javascripts/main.js'
+    './assets/javascripts/modules/**/*.js',
+    './assets/javascripts/main.js'
   ];
 
   var lib = [
