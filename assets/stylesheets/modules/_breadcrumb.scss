@@ -1,0 +1,36 @@
+.breadcrumb {
+  margin-top: 0;
+  padding-left: 0;
+  color: $gray;
+
+  li {
+    display: inline-block;
+    margin-right: 0;
+
+    &:after {
+      content: '>';
+      display: inline-block;
+      width: 2em;
+      text-align: center;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &:after {
+        content: '';
+        display: inline;
+        width: 0;
+        text-align: left;
+      }
+    }
+  }
+
+  a {
+    color: $gray;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
