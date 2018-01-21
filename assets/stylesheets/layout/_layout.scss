@@ -41,12 +41,12 @@
 
 .l-footer {
   margin-top: em(20px);
-  background: $brown;
   padding: em(40px) 0 em(20px) 0;
-  color: rgba(255,255,255,0.7);
+  border-top: 1px solid $gray;
+  color: $gray;
 
   a {
-    color: #fff;
+    color: $gray;
     text-decoration: none;
     text-transform: uppercase;
   }

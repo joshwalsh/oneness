@@ -41,14 +41,16 @@
         } %}
       </div>
       <div class="col-4">
-        <h2 class="secondary-headline">
-          <span class="headline-intro">Next {{ wisdom.sectionTypeLabel }}</span>
-          {{ nextEntry.title }}
-        </h2>
+        {% if nextEntry %}
+          <h2 class="secondary-headline">
+            <span class="headline-intro">Next {{ wisdom.sectionTypeLabel }}</span>
+            {{ nextEntry.title }}
+          </h2>
 
-        <p>{{ nextEntry.briefDescription }}</p>
+          <p>{{ nextEntry.briefDescription }}</p>
 
-        <a href="{{ nextEntry.url }}" class="button">Learn {{ wisdom.sectionTypeLabel }} {{ lessonNumber + 1 }}</a>
+          <a href="{{ nextEntry.url }}#title" class="button">Learn {{ wisdom.sectionTypeLabel }} {{ lessonNumber + 1 }}</a>
+        {% endif %}
 
         {% include '_components/_sidebar' with {
           'matrix': entry.sidebar
