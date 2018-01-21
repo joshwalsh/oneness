@@ -18,9 +18,11 @@
 
         {% paginate craft.entries.section('posts').relatedTo(entry).limit(10) as pageInfo, posts %}
 
-        {% include 'posts/_collection' with {
-          'posts': posts
-        } %}
+        {% for post in posts %}
+          {% include 'posts/_partial' with {
+            'post': post
+          } %}
+        {% endfor %}
 
         {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}" class="button">Previous Page</a>{% endif %}
         {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}" class="button">Next Page</a>{% endif %}

@@ -14,9 +14,11 @@
           <p><em>Nothing has been written yet.</em></p>
         {% endif %}
 
-        {% include 'posts/_collection' with {
-          'posts': recent_posts
-        } %}
+        {% for post in recent_posts %}
+          {% include 'posts/_partial' with {
+            'post': post
+          } %}
+        {% endfor %}
       </div>
     </div>
   </div>
