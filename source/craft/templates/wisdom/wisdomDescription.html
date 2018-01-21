@@ -1,19 +1,40 @@
 {% if entry.mainContent.first.type == 'video' %}
   {% set mainContent = entry.mainContent | slice(1,length) %}
+  {% set featuredVideo = entry.mainContent.first %}
 {% else %}
   {% set mainContent = entry.mainContent %}
 {% endif %}
 
 <div class="mast mast--small">
   <div class="l-container">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="secondary-headline">{{ entry.title }}</h2>
-        {% include '_components/_mainContent' with {
-          'matrix': mainContent
-        } %}
+    {% if featuredVideo %}
+      <div class="row">
+          <div class="col-6">
+            
+              {% include '_components/_featureThumbnail' with {
+                'entry': entry,
+                'thumbnail': featuredVideo
+              } %}
+            
+          </div>
+          <div class="col-6">
+            <h2 class="primary-headline">{{ entry.title }}</h2>
+            {% include '_components/_featureContent' with {
+              'entry': entry,
+              'matrix': entry.featuredContent
+            } %}
+          </div>
       </div>
-    </div>
+    {% else %}
+      <div class="row">
+        <div class="col-12">
+          <h2 class="primary-headline">{{ entry.title }}</h2>
+          {% include '_components/_mainContent' with {
+            'matrix': mainContent
+          } %}
+        </div>
+      </div>
+    {% endif %}
   </div>
 </div>
 
