@@ -20,6 +20,18 @@
   </div>
 </div>
 
+<div class="l-top-divider">
+    <div class="l-container">
+      <div class="row">
+        <div class="col-12">
+          {% include '_components/_inlineNavigation' with {
+            'matrix': entry.inlineNavigation
+          } %}
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% for wisdomItem in entry.relatedWisdom %}
   {% include 'wisdom/_featured' with {
     'wisdom': wisdomItem,
