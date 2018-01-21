@@ -2,16 +2,11 @@
 
 {% block content %}
 
-<div class="mast mast--small">
-  <div class="l-container">
-    <h1 class="mast__headline">Welcome back, {{ currentUser.friendlyName }}</h1>
-  </div>
-</div>
-
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
       <div class="col-8">
+        <h1 class="primary-headline">Welcome back, {{ currentUser.friendlyName }}</h1>
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
@@ -25,23 +20,11 @@
   </div>
 </div>
 
-<div class="l-content-section">
-  <div class="l-container">
-    <div class="row">
-      {% for wisdomItem in entry.relatedWisdom %}
-        <div class="col-6">
-          {% include 'wisdom/_featured' with {
-            'wisdom': wisdomItem
-          } %}
-        </div>
-
-        {% if loop.index0 % 2 == 1 and loop.last == false %}
-          </div>
-          <div class="row">
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</div>
+{% for wisdomItem in entry.relatedWisdom %}
+  {% include 'wisdom/_featured' with {
+    'wisdom': wisdomItem,
+    'sectionNumber': 1
+  } %}
+{% endfor %}
 
 {% endblock %}

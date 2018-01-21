@@ -2,19 +2,11 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
-  <title>{% if entry.titleTag %}{{ entry.titleTag}}{% else %}Discover Oneness Foundation{% endif %}</title>
-  <link rel="home" href="{{ siteUrl }}">
-  <meta name="robots" content="index,follow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% if entry is defined %}
-    <meta name="description" content="{{ entry.metaDescription }}">
-  {% endif %}
   <link rel="stylesheet" href="/assets/main.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700|Lato:400,700" rel="stylesheet" type="text/css">
 
-  {% if entry.metaDescription %}
-    <meta name="description" content="{{ entry.metaDescription }}">
-  {% endif %}
+  {% hook 'seomaticRender' %}
 </head>
 <body>
   {% if entry.premiumContent == true %}
