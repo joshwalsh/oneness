@@ -24,6 +24,16 @@
   @extend %headline;
   font-size: em(32px);
 
+  .headline-intro {
+    display: block;
+    font-size: em(14px, 32px);
+    font-family: $sans-serif-font;
+    font-weight: bold;
+    color: $gray;
+    padding-bottom: em(6px);
+    text-transform: uppercase;
+  }
+
   * + & {
     padding-top: em(32px);
   }

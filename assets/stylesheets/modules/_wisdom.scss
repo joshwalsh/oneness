@@ -46,3 +46,18 @@
         margin-right: em(15px);
     }
 }
+
+.wisdom-toc {
+    &__item {
+        padding: em(40px) 0;
+        border-bottom: 1px solid #ccc;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    &__prompt {
+        text-align: right;
+    }
+}
