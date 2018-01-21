@@ -18,6 +18,16 @@
 .primary-headline {
   @extend %headline;
   font-size: em(44px);
+
+  .headline-intro {
+    display: block;
+    font-size: em(16px, 44px);
+    font-family: $sans-serif-font;
+    font-weight: bold;
+    color: $gray;
+    padding-bottom: em(6px);
+    text-transform: uppercase;
+  }
 }
 
 .secondary-headline {

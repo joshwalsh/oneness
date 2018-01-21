@@ -1,35 +1,54 @@
 {% set wisdom = entry.getParent() %}
-{% include '_components/_mast' with {
-  'mast': wisdom.mast.first
-} %}
+
+{% set lessonNumber = craft.entries({
+  id: wisdom.getChildren().ids(),
+  order: 'lft desc',
+  positionedBefore: entry,
+}).total() + 1 %}
+
+{% set params = wisdom.children() %}
+{% set nextEntry = entry.getNext(params) %}
+
+<div class="mast mast--small">
+  <div class="l-container">
+    <div class="row">
+        <div class="col-12">
+          <h2 class="secondary-headline">{{ wisdom.title }}</h2>
+          <p>{{ wisdom.briefDescription }}</p>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="l-content-section">
+  <div class="l-container">
+      <a name="title"></a>
+      <h1 class="primary-headline">
+        <span class="headline-intro">{{ wisdom.sectionTypeLabel }} {{ lessonNumber }}</span>
+        {{ entry.title }}
+      </h1>
+      <p>{{entry.briefDescription}}</p>
+  </div>
+</div>
 
 <div class="l-content-section">
   <div class="l-container">
     <div class="row">
       <div class="col-8">
-        <h1 class="primary-headline">{{ entry.title }}</h1>
-
+        
         {% include '_components/_mainContent' with {
           'matrix': entry.mainContent
         } %}
       </div>
       <div class="col-4">
-        <div class="sidebar">
-          <div class="sidebar__section">
-            <h3 class="tertiary-headline">Table of Contents</h3>
+        <h2 class="secondary-headline">
+          <span class="headline-intro">Next {{ wisdom.sectionTypeLabel }}</span>
+          {{ nextEntry.title }}
+        </h2>
 
-            {% if wisdom.hasDescendants() %}
-              {% set wisdomItems = craft.entries.descendantOf(wisdom) %}
+        <p>{{ nextEntry.briefDescription }}</p>
 
-              <ol class="list-links">
-                <li>{{wisdom.link}}</li>
-                {% for item in wisdomItems %}
-                    <li>{{item.link}}</li>
-                {% endfor %}
-              </ol>
-            {% endif %}
-          </div>
-        </div>
+        <a href="{{ nextEntry.url }}" class="button">Learn {{ wisdom.sectionTypeLabel }} {{ lessonNumber + 1 }}</a>
 
         {% include '_components/_sidebar' with {
           'matrix': entry.sidebar
