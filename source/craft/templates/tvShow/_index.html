@@ -26,14 +26,11 @@
                 <div class="tile__item">
                     <h2 class="secondary-headline">{{ item.title }}</h2>
 
-                    {% include '_components/_featureContent' with {
-                        'entry': item,
-                        'matrix': item.featuredContent
-                    } %}
-                    
-                    <p class="fine-text">Originally aired on {{ item.postDate | date('M d, Y') }}</p>
+                    <div class="embed embed--16by9">
+                        {{ item.featuredVideo | raw }}
+                    </div>                    
 
-                    <p><a href="{{ item.url }}" class="button">Watch Show</a></p>
+                    <p><a href="{{ item.url }}" class="button">View Episode</a></p>
                 </div>
               {% endfor %}
             </div>

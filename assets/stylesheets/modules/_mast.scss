@@ -51,6 +51,10 @@
       text-align: center;
       font-size: em(22px);
 
+      @include respond-to(em(500px), max-width) {
+        font-size: em(18px);
+      }
+
       a {
         color: rgba(255,255,255,0.7);
         text-decoration: none;
@@ -64,6 +68,10 @@
       font-size: em(50px);
       font-family: $headline-font;
       font-weight: 300;
+
+      @include respond-to(em(500px), max-width) {
+        font-size: em(38px);
+      }
     }
   }
 }
