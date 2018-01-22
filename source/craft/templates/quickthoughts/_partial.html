@@ -1,4 +1,8 @@
-{% if showMeme %}
+{% if quickthought.featuredVideo %}
+  <div class="embed embed--4by3">
+      {{ quickthought.featuredVideo|raw }}
+  </div>
+{% elseif showMeme %}
   {% if showCaption %}
     <div class="quickThoughtCaption">
       <a href="{{ quickthought.url }}"><img src="{{ quickthought.quickthoughtImage.first.url }}" alt="{{ quickthought.quickThoughtTranscription|striptags }}" /></a>
