@@ -1,3 +1,8 @@
-<div class="embed embed--{{block.frameRatio}}">
+{% if block.frameRatio == 'inherit' %}
+  <div>
+{% else %}
+  <div class="embed embed--{{block.frameRatio}}">
+{% endif %}
+
   {{ block.videoSource|raw }}
 </div>
