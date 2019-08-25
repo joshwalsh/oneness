@@ -36,7 +36,12 @@
   padding-left: 0;
   list-style: none;
 
+  li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
   li + li {
-    border-top: 1px solid $gray;
+    border-top: 1px solid #ccc;
   }
 }

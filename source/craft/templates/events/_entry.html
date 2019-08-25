@@ -1,0 +1,68 @@
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="mast mast--small">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="secondary-headline">{{ entry.title }}</h2>
+        <div class="feature-content">
+          {% if entry.relatedPage | length %}
+            <p><strong>Topic:</strong> {{ entry.relatedPage.first.title }}</p>
+          {% endif %}
+          <p>{{ entry.briefDescription }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8">
+        {% if "now"|date('Y-m-d') > entry.dateTime %}
+          <p class="alert">Sorry, this event is completed.</p>
+        {% endif %}
+
+        {% include '_components/_mainContent' with {
+          'matrix': entry.mainContent
+        } %}
+
+        {% if entry.relatedPage | length %}
+          <p><a href="{{ entry.relatedPage.first.url }}">Learn More about the topic of this program.</a></p>
+        {% endif %}
+      </div>
+      <div class="col-4">
+        <h2 class="secondary-headline">Event Details</h2>
+
+        <ul class="list-vertical">
+          <li><strong>Date:</strong> {{ entry.dateTime | date("M d, Y") }}</li>
+          <li><strong>Time:</strong> {{ entry.dateTime | date("h:i a") }}</li>
+          <li>
+            {% if entry.cost > 0 %}
+              <strong>Cost:</strong> ${{ entry.cost | number_format(2, '.', ',') }}
+            {% else %}
+              <strong>Cost:</strong> FREE
+            {% endif %}
+          </li>
+          <li><strong>Location:</strong>
+            <p>{{ entry.location }}</p>
+          </li>
+        </ul>
+
+        {% if "now"|date('Y-m-d') <= entry.dateTime %}
+          {% if entry.cost > 0 %}
+            <p><a href="{{ entry.rsvpLink }}" class="button">Buy Ticket</a></p>
+          {% else %}
+            <p><a href="{{ entry.rsvpLink }}" class="button">Please RSVP</a></p>
+          {% endif %}
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

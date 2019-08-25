@@ -1,0 +1,27 @@
+{% extends "_layout" %}
+
+{% block content %}
+  {% include '_components/_mast' with {
+    'mast': entry.mast.first
+  } %}
+
+<div class="l-content-section">
+  <div class="l-container">
+    <div class="row">
+      <div class="col-8 col-centered">
+        {% set upcoming = craft.entries.section('events') %}
+        {% if upcoming | length == 0 %}
+          <p><em>There are no upcoming events.</em></p>
+        {% endif %}
+
+        {% for event in upcoming %}
+          {% include 'events/_partial' with {
+            'event': event
+          } %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

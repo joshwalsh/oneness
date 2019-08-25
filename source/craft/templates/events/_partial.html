@@ -1,0 +1,6 @@
+<div class="post">
+  <h2 class="secondary-headline post__title">{{ event.link }}</h2>
+  <p><strong>Date: {{ event.dateTime | date("M d, Y") }}</strong></p>
+  <p>{{event.briefDescription}}</p>
+  <p><a href="{{ event.url }}" class="button">Learn More</a></p>
+</div>
